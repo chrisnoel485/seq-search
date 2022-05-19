@@ -60,8 +60,8 @@
                                         @forelse ($kategori as $kategori)
                                         <tr>
                                             <td>{{ ++$i }}</td>
-                                            <td>{{ $kategori->name }}</td>
-                                            <td>{{ $kategori->email }}</td>
+                                            <td>{{ $kategori->nama }}</td>
+                                            <td>{{ $kategori->deskripsi }}</td>
                                             <td>
                                                 <form action="{{ route('kategori.destroy',$kategori->id) }}" method="POST">
                                                     <a class="btn btn-info" href="{{ route('kategori.show',$kategori->id) }}">Show</a>
