@@ -14,5 +14,13 @@ class StatusTableSeeder extends Seeder
     public function run()
     {
         //
+        Status::create([
+            'nama' => 'Dipinjam',
+            'deskripsi' => 'Aset Sedang Dipinjam',
+        ]);
+        Status::create([
+            'nama' => 'Tidak Dipinjam',
+            'deskripsi' => 'Aset Sedang Tidak Dipinjam',
+        ]);
     }
 }
