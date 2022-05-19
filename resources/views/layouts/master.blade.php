@@ -84,14 +84,6 @@
           <i class="fas fa-expand-arrows-alt"></i>
         </a>
       </li>
-      <li class="nav-item has-treeview">
-        <a class="nav-link" href="{{ route('logout') }}"
-          onclick="event.preventDefault();
-          document.getElementById('logout-form').submit();">
-          <i class="nav-icon fa fa-sign-out">Logout</i>
-        </a>
-        
-      </li>
     </ul>
   </nav>
   @include('layouts.module.sidebar')
