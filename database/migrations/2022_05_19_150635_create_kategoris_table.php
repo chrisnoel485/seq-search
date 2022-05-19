@@ -19,6 +19,7 @@ class CreateKategorisTable extends Migration
             $table->string('deskripsi')->nullable();
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent();
+        });
     }
 
     /**
