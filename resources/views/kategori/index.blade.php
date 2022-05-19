@@ -57,15 +57,15 @@
                                             <th>Email</th>
                                             <th width="280px">Action</th>
                                         </tr>
-                                        @forelse ($users as $user)
+                                        @forelse ($kategori as $kategori)
                                         <tr>
                                             <td>{{ ++$i }}</td>
                                             <td>{{ $user->name }}</td>
                                             <td>{{ $user->email }}</td>
                                             <td>
-                                                <form action="{{ route('users.destroy',$user->id) }}" method="POST">
-                                                    <a class="btn btn-info" href="{{ route('users.show',$user->id) }}">Show</a>
-                                                    <a class="btn btn-primary" href="{{ route('users.edit',$user->id) }}">Edit</a>
+                                                <form action="{{ route('kategori.destroy',$user->id) }}" method="POST">
+                                                    <a class="btn btn-info" href="{{ route('kategori.show',$user->id) }}">Show</a>
+                                                    <a class="btn btn-primary" href="{{ route('kategori.edit',$user->id) }}">Edit</a>
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger">Delete</button>
@@ -79,7 +79,7 @@
                                         @endforelse
                                     </table>
                                     <div class="text-center">
-                                        {!! $users->links() !!}
+                                        {!! $kategori->links() !!}
                                     </div>
                                 </div>
                             </div>
