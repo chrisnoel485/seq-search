@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\KategoriController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::resource('kategori', KategoriController::class);
+Route::get('/search', [KategoriController::class, 'search'])->name('search');
+
 Route::get('/', function () {
     return view('welcome');
 });
+
