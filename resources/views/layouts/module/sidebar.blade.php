@@ -43,67 +43,11 @@
           </li>
          
           <li class="nav-header">Management User</li>
-          <li class="nav-item">
-            <a href="{{ route('users.index') }}" class="nav-link">
-              <i class="nav-icon far fa-image"></i>
-              <p>
-                User
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="{{ route('role.index') }}" class="nav-link">
-              <i class="nav-icon far fa-image"></i>
-              <p>
-                Role
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="{{ route('users.roles_permission') }}" class="nav-link">
-              <i class="nav-icon fas fa-columns"></i>
-              <p>
-                Role Permission
-              </p>
-            </a>
-          </li>
           <li class="nav-header">Management Aset</li>
-          <li class="nav-item">
-            <a href="{{ route('aset.index') }}" class="nav-link">
-              <i class="nav-icon fas fa-columns"></i>
-              <p>
-                Aset
-              </p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="/jenis" class="nav-link">
-              <i class="nav-icon fas fa-file"></i>
-              <p>Jenis</p>
-            </a>
-          </li>
           <li class="nav-item">
             <a href="{{ route('kategori.index') }}" class="nav-link">
               <i class="nav-icon fas fa-file"></i>
               <p>kategori</p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="{{ route('merek.index') }}" class="nav-link">
-              <i class="nav-icon fas fa-file"></i>
-              <p>Merek</p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="{{ route('letak.index') }}" class="nav-link">
-              <i class="nav-icon fas fa-file"></i>
-              <p>Letak</p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="{{ route('posisi.index') }}" class="nav-link">
-              <i class="nav-icon fas fa-file"></i>
-              <p>Posisi</p>
             </a>
           </li>
         
