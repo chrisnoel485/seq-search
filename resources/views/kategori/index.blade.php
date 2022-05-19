@@ -60,12 +60,12 @@
                                         @forelse ($kategori as $kategori)
                                         <tr>
                                             <td>{{ ++$i }}</td>
-                                            <td>{{ $user->name }}</td>
-                                            <td>{{ $user->email }}</td>
+                                            <td>{{ $kategori->name }}</td>
+                                            <td>{{ $kategori->email }}</td>
                                             <td>
-                                                <form action="{{ route('kategori.destroy',$user->id) }}" method="POST">
-                                                    <a class="btn btn-info" href="{{ route('kategori.show',$user->id) }}">Show</a>
-                                                    <a class="btn btn-primary" href="{{ route('kategori.edit',$user->id) }}">Edit</a>
+                                                <form action="{{ route('kategori.destroy',$kategori->id) }}" method="POST">
+                                                    <a class="btn btn-info" href="{{ route('kategori.show',$kategori->id) }}">Show</a>
+                                                    <a class="btn btn-primary" href="{{ route('kategori.edit',$kategori->id) }}">Edit</a>
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger">Delete</button>
