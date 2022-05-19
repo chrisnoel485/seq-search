@@ -90,9 +90,7 @@
           document.getElementById('logout-form').submit();">
           <i class="nav-icon fa fa-sign-out">Logout</i>
         </a>
-        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-          @csrf
-        </form>
+        
       </li>
     </ul>
   </nav>
