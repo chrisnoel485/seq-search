@@ -52,10 +52,10 @@
                                 <div class="col-md-12">
                                     <table class="table table-bordered">
                                         <tr>
-                                            <th>No</th>
-                                            <th>Nama</th>
-                                            <th>Deskripsi</th>
-                                            <th width="280px">Action</th>
+                                            <th class="text-center">No</th>
+                                            <th class="text-center">Nama</th>
+                                            <th class="text-center">Deskripsi</th>
+                                            <th width="280px" class="text-center">Action</th>
                                         </tr>
                                         @forelse ($kategori as $kategori)
                                         <tr>
