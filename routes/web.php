@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\KategoriController;
+use App\Http\Controllers\MerekController;
+use App\Http\Controllers\JenisController;
 
 /*
 |--------------------------------------------------------------------------
