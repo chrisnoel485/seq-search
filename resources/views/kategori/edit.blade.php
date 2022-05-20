@@ -52,7 +52,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label for="deskripsi">Deskripsi</label>
-                                            <textarea name="deskripsi" id="deskripsi" cols="5" rows="5" class="form-control" aria-describedby="deskripsi" value="{{ $kategori->deskripsi }}"></textarea>
+                                            <textarea name="deskripsi" cols="5" rows="5" class="form-control" aria-describedby="deskripsi" value="{{ $kategori->deskripsi }}"></textarea>
                                         </div>
                                         <div class="card-footer">
                                             <a href="{{ URL::to('kategori') }}" class="btn btn-outline-info">Kembali</a>
