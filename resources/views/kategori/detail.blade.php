@@ -45,6 +45,10 @@
                                     </ul>
                                 </div>
                             </div>
+                            <div class="card-footer">
+                                <a href="{{ URL::to('kategori') }}" class="btn btn-outline-info">Kembali</a>
+                                <input type="submit" value="Proses" class="btn btn-primary pull-right">
+                            </div>
                         </div>
                     </div>
                 </div>
