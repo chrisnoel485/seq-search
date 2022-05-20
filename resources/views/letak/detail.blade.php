@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('title')
-    <title>Daftar Kategori</title>
+    <title>Daftar Letak</title>
 @endsection
 
 @section('content')
@@ -9,12 +9,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">                      
-                    <h1 class="m-0 text-dark">Manajemen Kategori</h1>
+                    <h1 class="m-0 text-dark">Manajemen Letak</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="/home">Home</a></li>
-                        <li class="breadcrumb-item active">Kategori</li>
+                        <li class="breadcrumb-item active">Letak</li>
                     </ol>
                 </div>
             </div>
@@ -27,7 +27,7 @@
                     <div class="card">
                         <div class="card-header">
                             <div>
-                                <h3 class="card-title">Detail Kategori</h3>
+                                <h3 class="card-title">Detail Letak</h3>
                             </div>
                         </div>
                         <div class="card-body">
@@ -36,17 +36,21 @@
                                     <ul class="list-group list-group-flush">
                                         <li class="list-group-item">
                                             <b>Nama: </b>
-                                                {{$kategori->nama}}
+                                                {{$letak->nama}}
                                         </li>
                                         <li class="list-group-item">
                                             <b>Deskripsi: </b>
-                                                {{$kategori->deskripsi}}
+                                                {{$letak->deskripsi}}
+                                        </li>
+                                        <li class="list-group-item">
+                                            <b>Kategori: </b>
+                                                {{$letak->KATEGORI->nama}}
                                         </li>
                                     </ul>
                                 </div>
                             </div>
                             <div class="card-footer">
-                                <a href="{{ URL::to('kategori') }}" class="btn btn-outline-info">Kembali</a>
+                                <a href="{{ URL::to('letak') }}" class="btn btn-outline-info">Kembali</a>
                             </div>
                         </div>
                     </div>

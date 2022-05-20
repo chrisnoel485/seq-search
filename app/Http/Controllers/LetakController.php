@@ -69,9 +69,11 @@ class LetakController extends Controller
      * @param  \App\Models\Letak  $letak
      * @return \Illuminate\Http\Response
      */
-    public function show(Letak $letak)
+    public function show($id)
     {
         //
+        $letak = Letak::findOrFail($id);
+        return view('letak.detail', compact('letak'));
     }
 
     /**
