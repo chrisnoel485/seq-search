@@ -53,8 +53,8 @@
                                     <table class="table table-bordered">
                                         <tr>
                                             <th>No</th>
-                                            <th>Name</th>
-                                            <th>Email</th>
+                                            <th>Nama</th>
+                                            <th>Deskripsi</th>
                                             <th width="280px">Action</th>
                                         </tr>
                                         @forelse ($kategori as $kategori)

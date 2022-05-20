@@ -40,6 +40,17 @@ class KategoriController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([
+            'nama' => 'required',
+            'deskripsi' => 'required',
+        ]);
+
+        //fungsi eloquent untuk menambah data
+        Kategori::create($request->all());
+
+        //jika data berhasil ditambahkan, akan kembali ke halaman utama
+        return redirect()->route('kategori.index')
+            ->with('success', 'Kategori Berhasil Ditambahkan');
     }
 
     /**
