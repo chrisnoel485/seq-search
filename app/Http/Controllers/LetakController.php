@@ -120,8 +120,11 @@ class LetakController extends Controller
      * @param  \App\Models\Letak  $letak
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Letak $letak)
+    public function destroy($id)
     {
         //
+        Letak::find($id)->delete();
+        return redirect()->route('letak.index')
+            ->with('success', 'Letak Berhasil Dihapus');
     }
 }
