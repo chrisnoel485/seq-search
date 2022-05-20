@@ -21,7 +21,7 @@ class LetakController extends Controller
         //    ->with('i', (request()->input('page', 1) - 1) * 5);
 
 
-        $letak = Letak::with('kategori')->get()->paginate(5);
+        $letak = Letak::with('kategori')->latest()->paginate(5);
         return view('letak.index', compact('letak'))
         ->with('i', (request()->input('page', 1) - 1) * 5);
     }
