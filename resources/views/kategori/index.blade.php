@@ -78,9 +78,6 @@
                                         </tr>
                                         @endforelse
                                     </table>
-                                    <div class="text-center">
-                                        {!! $kategori->links() !!}
-                                    </div>
                                 </div>
                             </div>
                         </div>
