@@ -53,6 +53,20 @@
                                             <label for="deskripsi">Deskripsi</label>
                                             <textarea name="deskripsi" id="deskripsi" cols="5" rows="5" placeholder="Masukkan Deskripsi Kategori" class="form-control" aria-describedby="deskripsi"></textarea>
                                         </div>
+                                        <div class="form-group">
+                                            <label for="">Nama Kategori</label>
+                                            <select name="kategori_id" class="form-control @error('kategori_id') is-invalid @enderror">
+                                                <option value="">Pilih Kategori</option>
+                                                    @foreach ($kategori as $kategori)
+                                                        <option value="{{ $kategori->id }}">{{ $kategori->nama() }}</option>
+                                                    @endforeach
+                                            </select>
+                                            @error('kategori_id')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                            @enderror
+                                        </div>
                                         <div class="card-footer">
                                             <a href="{{ URL::to('kategori') }}" class="btn btn-outline-info">Kembali</a>
                                             <input type="submit" value="Proses" class="btn btn-primary pull-right">
