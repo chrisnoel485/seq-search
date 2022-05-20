@@ -62,7 +62,12 @@
               <p>Merek</p>
             </a>
           </li>
-          
+          <li class="nav-item">
+            <a href="{{ route('letak.index') }}" class="nav-link">
+              <i class="nav-icon fas fa-file"></i>
+              <p>Letak</p>
+            </a>
+          </li>
         
         </ul>
       </nav>
