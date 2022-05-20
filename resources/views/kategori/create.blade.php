@@ -58,6 +58,9 @@
                                             <input type="submit" value="Proses" class="btn btn-primary pull-right">
                                         </div>
                                     </form>
+                                    <div class="text-center">
+                                        {!! $kategori->links() !!}
+                                    </div>
                                 </div>
                             </div>
                         </div>
