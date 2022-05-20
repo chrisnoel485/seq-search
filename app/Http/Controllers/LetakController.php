@@ -16,13 +16,14 @@ class LetakController extends Controller
     public function index()
     {
         //
-        $kategori = Kategori::latest()->paginate(5);
-        return view('kategori.index', compact('kategori'))
-            ->with('i', (request()->input('page', 1) - 1) * 5);
+        //$kategori = Kategori::latest()->paginate(5);
+        //return view('kategori.index', compact('kategori'))
+        //    ->with('i', (request()->input('page', 1) - 1) * 5);
 
 
-        $letak = Letak::with('author')->get();
-        return view('admin.book.index', compact('books'));
+        $letak = Letak::with('kategori')->get()->paginate(5);
+        return view('letak.index', compact('letak'))
+        ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     /**
@@ -33,6 +34,8 @@ class LetakController extends Controller
     public function create()
     {
         //
+        $kategori = Kategori::all();
+        return view('letak.create', compact('kategori'));
     }
 
     /**
@@ -43,7 +46,21 @@ class LetakController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'nama' => 'required',
+            'deskripsi' => 'required',
+            'kategori_id' => 'required',
+        ]);
+        Letak::create($request->all());
+        return redirect()->route('letak.index')
+            ->with('success', 'Letak Berhasil Ditambahkan');
+
+        //$book = new Book;
+        //$book->title = $request->title;
+        //$book->author_id = $request->author_id;
+        //$book->amount = $request->amount;
+        //$book->save();
+        //return redirect()->route('books.index');
     }
 
     /**

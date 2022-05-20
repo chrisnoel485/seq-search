@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\MerekController;
 use App\Http\Controllers\JenisController;
+use App\Http\Controllers\LetakController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +20,7 @@ use App\Http\Controllers\JenisController;
 Route::resource('kategori', KategoriController::class);
 Route::resource('jenis', JenisController::class);
 Route::resource('merek', MerekController::class);
+Route::resource('letak', LetakController::class);
 Route::get('/search', [KategoriController::class, 'search'])->name('search');
 
 Route::get('/', function () {
