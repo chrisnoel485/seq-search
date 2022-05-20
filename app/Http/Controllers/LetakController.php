@@ -107,7 +107,7 @@ class LetakController extends Controller
         ]);
 
         //fungsi eloquent untuk mengupdate data inputan kita
-        Merek::find($id)->update($request->all());
+        Letak::find($id)->update($request->all());
 
         //jika data berhasil diupdate, akan kembali ke halaman utama
         return redirect()->route('letak.index')
