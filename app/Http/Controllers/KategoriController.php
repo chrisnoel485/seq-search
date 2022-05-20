@@ -72,9 +72,11 @@ class KategoriController extends Controller
      * @param  \App\Models\Kategori  $kategori
      * @return \Illuminate\Http\Response
      */
-    public function edit(Kategori $kategori)
+    public function edit($id)
     {
         //
+        $kategori = Kategori::find($id);
+        return view('kategori.edit', compact('kategori'));
     }
 
     /**
@@ -84,9 +86,21 @@ class KategoriController extends Controller
      * @param  \App\Models\Kategori  $kategori
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Kategori $kategori)
+    public function update(Request $request,$id)
     {
         //
+        //melakukan validasi data
+        $request->validate([
+            'nama' => 'required',
+            'deskripsi' => 'required',
+        ]);
+
+        //fungsi eloquent untuk mengupdate data inputan kita
+        Kategori::find($id)->update($request->all());
+
+        //jika data berhasil diupdate, akan kembali ke halaman utama
+        return redirect()->route('kategori.index')
+            ->with('success', 'Kategori Berhasil Diupdate');
     }
 
     /**

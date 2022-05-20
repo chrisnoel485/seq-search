@@ -34,8 +34,14 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <ul class="list-group list-group-flush">
-                                        <li class="list-group-item"><b>Nama         : </b>{{$kategori->nama}}</li>
-                                        <li class="list-group-item"><b>Deskripsi    : </b>{{$kategori->deskripsi}}</li>
+                                        <li class="list-group-item">
+                                            <b>Nama: </b>
+                                                {{$kategori->nama}}
+                                        </li>
+                                        <li class="list-group-item">
+                                            <b>Deskripsi: </b>
+                                                {{$kategori->deskripsi}}
+                                        </li>
                                     </ul>
                                 </div>
                             </div>
