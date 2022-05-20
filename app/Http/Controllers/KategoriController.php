@@ -93,8 +93,11 @@ class KategoriController extends Controller
      * @param  \App\Models\Kategori  $kategori
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Kategori $kategori)
+    public function destroy($id)
     {
         //
+        Kategori::find($id)->delete();
+        return redirect()->route('kategori.index')
+            ->with('success', 'Kategori Berhasil Dihapus');
     }
 }
