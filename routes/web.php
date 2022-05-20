@@ -17,7 +17,7 @@ use App\Http\Controllers\KategoriController;
 Route::resource('kategori', KategoriController::class);
 Route::resource('jenis', JenisController::class);
 Route::resource('merek', MerekController::class);
-//Route::get('/search', [KategoriController::class, 'search'])->name('search');
+Route::get('/search', [KategoriController::class, 'search'])->name('search');
 
 Route::get('/', function () {
     return view('welcome');
