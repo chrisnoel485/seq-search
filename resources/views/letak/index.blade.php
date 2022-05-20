@@ -63,7 +63,7 @@
                                             <td class="text-center">{{ ++$i }}</td>
                                             <td>{{ $letak->nama }}</td>
                                             <td>{{ $letak->deskripsi }}</td>
-                                            <td>{{ $letak->kategori->nama() }}</td>
+                                            <td>{{ $letak->kategori->nama }}</td>
                                             <td>
                                                 <form action="{{ route('letak.destroy',$letak->id) }}" method="POST">
                                                     <a class="btn btn-info" href="{{ route('letak.show',$letak->id) }}">Show</a>
