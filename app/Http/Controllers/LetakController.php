@@ -82,9 +82,12 @@ class LetakController extends Controller
      * @param  \App\Models\Letak  $letak
      * @return \Illuminate\Http\Response
      */
-    public function edit(Letak $letak)
+    public function edit($id)
     {
         //
+        $letak = Letak::findOrFail($id);
+        $kategori = Kategori::all();
+        return view('letak.edit', compact('letak','kategori'));
     }
 
     /**
@@ -94,9 +97,21 @@ class LetakController extends Controller
      * @param  \App\Models\Letak  $letak
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Letak $letak)
+    public function update(Request $request, $id)
     {
         //
+        $request->validate([
+            'nama' => 'required',
+            'deskripsi' => 'required',
+            'kategori_id' => 'required',
+        ]);
+
+        //fungsi eloquent untuk mengupdate data inputan kita
+        Merek::find($id)->update($request->all());
+
+        //jika data berhasil diupdate, akan kembali ke halaman utama
+        return redirect()->route('letak.index')
+            ->with('success', 'Letak Berhasil Diupdate');
     }
 
     /**

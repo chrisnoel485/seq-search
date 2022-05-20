@@ -27,7 +27,7 @@
                     <div class="card">
                         <div class="card-header">
                             <div>
-                                <h3 class="card-title">Input Jenis</h3>
+                                <h3 class="card-title">Edit Jenis</h3>
                             </div>
                         </div>
                         <div class="card-body">
