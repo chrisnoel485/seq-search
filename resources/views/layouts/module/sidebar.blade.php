@@ -50,6 +50,19 @@
               <p>kategori</p>
             </a>
           </li>
+          <li class="nav-item">
+            <a href="{{ route('jenis.index') }}" class="nav-link">
+              <i class="nav-icon fas fa-file"></i>
+              <p>Jenis</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{ route('merek.index') }}" class="nav-link">
+              <i class="nav-icon fas fa-file"></i>
+              <p>Merek</p>
+            </a>
+          </li>
+          
         
         </ul>
       </nav>

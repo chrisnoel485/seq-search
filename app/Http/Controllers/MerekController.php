@@ -15,6 +15,9 @@ class MerekController extends Controller
     public function index()
     {
         //
+        $merek = Merek::latest()->paginate(5);
+        return view('merek.index', compact('merek'))
+            ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     /**
@@ -25,6 +28,7 @@ class MerekController extends Controller
     public function create()
     {
         //
+        return view('merek.create');
     }
 
     /**
@@ -36,6 +40,17 @@ class MerekController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([
+            'nama' => 'required',
+            'deskripsi' => 'required',
+        ]);
+
+        //fungsi eloquent untuk menambah data
+        Merek::create($request->all());
+
+        //jika data berhasil ditambahkan, akan kembali ke halaman utama
+        return redirect()->route('merek.index')
+            ->with('success', 'Merek Berhasil Ditambahkan');
     }
 
     /**
@@ -44,9 +59,11 @@ class MerekController extends Controller
      * @param  \App\Models\Merek  $merek
      * @return \Illuminate\Http\Response
      */
-    public function show(Merek $merek)
+    public function show($id)
     {
         //
+        $merek = Merek::find($id);
+        return view('merek.detail', compact('merek'));
     }
 
     /**
@@ -55,9 +72,11 @@ class MerekController extends Controller
      * @param  \App\Models\Merek  $merek
      * @return \Illuminate\Http\Response
      */
-    public function edit(Merek $merek)
+    public function edit($id)
     {
         //
+        $merek = Merek::find($id);
+        return view('merek.edit', compact('merek'));
     }
 
     /**
@@ -67,9 +86,21 @@ class MerekController extends Controller
      * @param  \App\Models\Merek  $merek
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Merek $merek)
+    public function update(Request $request,$id)
     {
         //
+        //melakukan validasi data
+        $request->validate([
+            'nama' => 'required',
+            'deskripsi' => 'required',
+        ]);
+
+        //fungsi eloquent untuk mengupdate data inputan kita
+        Merek::find($id)->update($request->all());
+
+        //jika data berhasil diupdate, akan kembali ke halaman utama
+        return redirect()->route('merek.index')
+            ->with('success', 'Merek Berhasil Diupdate');
     }
 
     /**
@@ -78,8 +109,11 @@ class MerekController extends Controller
      * @param  \App\Models\Merek  $merek
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Merek $merek)
+    public function destroy($id)
     {
         //
+        Merek::find($id)->delete();
+        return redirect()->route('merek.index')
+            ->with('success', 'Merek Berhasil Dihapus');
     }
 }

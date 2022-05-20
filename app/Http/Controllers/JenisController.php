@@ -15,6 +15,9 @@ class JenisController extends Controller
     public function index()
     {
         //
+        $jenis = Jenis::latest()->paginate(5);
+        return view('jenis.index', compact('jenis'))
+            ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     /**
@@ -25,6 +28,7 @@ class JenisController extends Controller
     public function create()
     {
         //
+        return view('jenis.create');
     }
 
     /**
@@ -36,6 +40,17 @@ class JenisController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([
+            'nama' => 'required',
+            'deskripsi' => 'required',
+        ]);
+
+        //fungsi eloquent untuk menambah data
+        Jenis::create($request->all());
+
+        //jika data berhasil ditambahkan, akan kembali ke halaman utama
+        return redirect()->route('jenis.index')
+            ->with('success', 'Jenis Berhasil Ditambahkan');
     }
 
     /**
@@ -44,9 +59,11 @@ class JenisController extends Controller
      * @param  \App\Models\Jenis  $jenis
      * @return \Illuminate\Http\Response
      */
-    public function show(Jenis $jenis)
+    public function show($id)
     {
         //
+        $jenis = Jenis::find($id);
+        return view('jenis.detail', compact('jenis'));
     }
 
     /**
@@ -55,9 +72,11 @@ class JenisController extends Controller
      * @param  \App\Models\Jenis  $jenis
      * @return \Illuminate\Http\Response
      */
-    public function edit(Jenis $jenis)
+    public function edit($id)
     {
         //
+        $jenis = Jenis::find($id);
+        return view('jenis.edit', compact('jenis'));
     }
 
     /**
@@ -67,9 +86,21 @@ class JenisController extends Controller
      * @param  \App\Models\Jenis  $jenis
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Jenis $jenis)
+    public function update(Request $request,$id)
     {
         //
+        //melakukan validasi data
+        $request->validate([
+            'nama' => 'required',
+            'deskripsi' => 'required',
+        ]);
+
+        //fungsi eloquent untuk mengupdate data inputan kita
+        Jenis::find($id)->update($request->all());
+
+        //jika data berhasil diupdate, akan kembali ke halaman utama
+        return redirect()->route('jenis.index')
+            ->with('success', 'Jenis Berhasil Diupdate');
     }
 
     /**
@@ -78,8 +109,11 @@ class JenisController extends Controller
      * @param  \App\Models\Jenis  $jenis
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Jenis $jenis)
+    public function destroy($id)
     {
         //
+        Jenis::find($id)->delete();
+        return redirect()->route('jenis.index')
+            ->with('success', 'Jenis Berhasil Dihapus');
     }
 }

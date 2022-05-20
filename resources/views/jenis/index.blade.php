@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('title')
-    <title>Daftar Kategori</title>
+    <title>Daftar Jenis</title>
 @endsection
 
 @section('content')
@@ -9,12 +9,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">                      
-                    <h1 class="m-0 text-dark">Manajemen Kategori</h1>
+                    <h1 class="m-0 text-dark">Manajemen Jenis</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="/home">Home</a></li>
-                        <li class="breadcrumb-item active">Kategori</li>
+                        <li class="breadcrumb-item active">Jenis</li>
                     </ol>
                 </div>
             </div>
@@ -27,10 +27,10 @@
                     <div class="card">
                         <div class="card-header">
                             <div>
-                                <h3 class="card-title">Data Kategori</h3>
+                                <h3 class="card-title">Data Jenis</h3>
                             </div>
                             <div class="card-tools">
-                                <a href="/kategori/create" class="btn btn-primary">Input Kategori Baru</a>
+                                <a href="/jenis/create" class="btn btn-primary">Input Jenis Baru</a>
                             </div>
                         </div>
                         <div class="card-header">
@@ -57,15 +57,15 @@
                                             <th class="text-center">Deskripsi</th>
                                             <th width="280px" class="text-center">Action</th>
                                         </tr>
-                                        @forelse ($kategori as $kategori)
+                                        @forelse ($jenis as $jenis)
                                         <tr>
                                             <td class="text-center">{{ ++$i }}</td>
-                                            <td>{{ $kategori->nama }}</td>
-                                            <td>{{ $kategori->deskripsi }}</td>
+                                            <td>{{ $jenis->nama }}</td>
+                                            <td>{{ $jenis->deskripsi }}</td>
                                             <td>
-                                                <form action="{{ route('kategori.destroy',$kategori->id) }}" method="POST">
-                                                    <a class="btn btn-info" href="{{ route('kategori.show',$kategori->id) }}">Show</a>
-                                                    <a class="btn btn-primary" href="{{ route('kategori.edit',$kategori->id) }}">Edit</a>
+                                                <form action="{{ route('jenis.destroy',$jenis->id) }}" method="POST">
+                                                    <a class="btn btn-info" href="{{ route('jenis.show',$jenis->id) }}">Show</a>
+                                                    <a class="btn btn-primary" href="{{ route('jenis.edit',$jenis->id) }}">Edit</a>
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger">Delete</button>

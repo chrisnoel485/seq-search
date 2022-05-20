@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Letak;
+use App\Models\Kategori;
 use Illuminate\Http\Request;
 
 class LetakController extends Controller
@@ -15,6 +16,13 @@ class LetakController extends Controller
     public function index()
     {
         //
+        $kategori = Kategori::latest()->paginate(5);
+        return view('kategori.index', compact('kategori'))
+            ->with('i', (request()->input('page', 1) - 1) * 5);
+
+
+        $letak = Letak::with('author')->get();
+        return view('admin.book.index', compact('books'));
     }
 
     /**

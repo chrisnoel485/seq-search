@@ -19,8 +19,4 @@ class Letak extends Model
         {
             return $this->belongsTo('App\Models\Kategori', 'kategori_id');
         }
-    public function aset()
-        {
-            return $this->hasMany('App\Models\Aset', 'letak_id');
-        }
 }
