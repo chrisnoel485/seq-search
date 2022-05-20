@@ -57,8 +57,8 @@
                                             <label for="">Nama Kategori</label>
                                             <select name="kategori_id" class="form-control @error('kategori_id') is-invalid @enderror">
                                                 <option value="">Pilih Kategori</option>
-                                                    @foreach ($kategori as $kategori)
-                                                        <option value="{{ $kategori->id }}">{{ $kategori->nama() }}</option>
+                                                    @foreach ($kategori as $data)
+                                                        <option value="{{ $data->id }}">{{ $data->nama}}</option>
                                                     @endforeach
                                             </select>
                                             @error('kategori_id')
