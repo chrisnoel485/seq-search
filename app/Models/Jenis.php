@@ -13,4 +13,8 @@ class Jenis extends Model
         'nama',
         'deskripsi',
     ];
+    public function aset()
+    {
+        return $this->hasMany('App\Models\Aset', 'jenis_id');
+    }
 }

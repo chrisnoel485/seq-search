@@ -19,4 +19,8 @@ class Letak extends Model
         {
             return $this->belongsTo('App\Models\Kategori', 'kategori_id');
         }
+    public function aset()
+        {
+            return $this->hasOne('App\Models\Aset', 'letak_id');
+        }
 }

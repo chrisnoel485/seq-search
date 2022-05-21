@@ -8,4 +8,32 @@ use Illuminate\Database\Eloquent\Model;
 class Aset extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'nama',
+        'deskripsi',
+        'merek_id',
+        'kategori_id',
+        'jenis_id',
+        'status_id',
+    ];
+    public function merek()
+        {
+            return $this->belongsTo('App\Models\Merek', 'merek_id');
+        }
+    public function kategori()
+        {
+            return $this->belongsTo('App\Models\Kategori', 'kategori_id');
+        }
+    public function jenis()
+        {
+            return $this->belongsTo('App\Models\Jenis', 'jenis_id');
+        }
+    public function status()
+        {
+            return $this->belongsTo('App\Models\Status', 'status_id');
+        }
+    public function letak()
+        {
+            return $this->belongsTo('App\Models\Letak', 'letak_id');
+        }
 }

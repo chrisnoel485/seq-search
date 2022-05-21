@@ -13,4 +13,8 @@ class Merek extends Model
         'nama',
         'deskripsi',
     ];
+    public function aset()
+    {
+        return $this->hasMany('App\Models\Aset', 'merek_id');
+    }
 }

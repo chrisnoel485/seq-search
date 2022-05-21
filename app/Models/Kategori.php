@@ -18,4 +18,8 @@ class Kategori extends Model
     {
         return $this->hasMany('App\Models\Letak', 'kategori_id');
     }
+    public function aset()
+    {
+        return $this->hasMany('App\Models\Aset', 'kategori_id');
+    }
 }

@@ -20,8 +20,6 @@ class CreateLetaksTable extends Migration
             $table->integer('kategori_id')->unsigned();;
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent();
-            //$table->foreign('kategori_id')->references('id')->on('kategoris')
-            //    ->onDelete('cascade');
         });
     }
 

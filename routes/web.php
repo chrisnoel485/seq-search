@@ -21,8 +21,10 @@ Route::resource('kategori', KategoriController::class);
 Route::resource('jenis', JenisController::class);
 Route::resource('merek', MerekController::class);
 Route::resource('letak', LetakController::class);
+Route::resource('aset', AsetController::class);
 Route::get('/search', [KategoriController::class, 'search'])->name('search');
 Route::get('/search', [LetakController::class, 'search'])->name('search');
+Route::get('/search', [AsetController::class, 'search'])->name('search');
 
 Route::get('/', function () {
     return view('welcome');
