@@ -5,6 +5,8 @@ use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\MerekController;
 use App\Http\Controllers\JenisController;
 use App\Http\Controllers\LetakController;
+use App\Http\Controllers\AsetController;
+
 
 /*
 |--------------------------------------------------------------------------

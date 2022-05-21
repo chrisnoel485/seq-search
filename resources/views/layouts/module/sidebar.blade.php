@@ -45,6 +45,12 @@
           <li class="nav-header">Management User</li>
           <li class="nav-header">Management Aset</li>
           <li class="nav-item">
+            <a href="{{ route('aset.index') }}" class="nav-link">
+              <i class="nav-icon fas fa-file"></i>
+              <p>Aset</p>
+            </a>
+          </li>
+          <li class="nav-item">
             <a href="{{ route('kategori.index') }}" class="nav-link">
               <i class="nav-icon fas fa-file"></i>
               <p>kategori</p>
