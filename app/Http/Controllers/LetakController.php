@@ -25,6 +25,12 @@ class LetakController extends Controller
         return view('letak.index', compact('letak'))
         ->with('i', (request()->input('page', 1) - 1) * 5);
     }
+    public function search(Request $request)
+    {
+        $search = $request->search;        
+        $letak = Letak::where('nama', 'like', "%" . $search . "%")->with('kategori')->paginate(5);
+        return view('letak.index', compact('letak'))->with('i', (request()->input('page', 1) - 1) * 5);
+    }
 
     /**
      * Show the form for creating a new resource.
