@@ -6,6 +6,7 @@ use App\Http\Controllers\MerekController;
 use App\Http\Controllers\JenisController;
 use App\Http\Controllers\LetakController;
 use App\Http\Controllers\AsetController;
+use App\Http\Controllers\Auth\LoginController;
 
 
 /*
@@ -37,8 +38,3 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('/search', [LetakController::class, 'search'])->name('search');
     Route::get('/search', [AsetController::class, 'search'])->name('search'); 
 });
-
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
