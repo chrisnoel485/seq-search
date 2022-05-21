@@ -28,7 +28,6 @@ Route::get('/', function () {
 
 Auth::routes();
 Route::group(['middleware' => 'auth'], function() {
-    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     Route::resource('kategori', KategoriController::class);
     Route::resource('jenis', JenisController::class);
     Route::resource('merek', MerekController::class);
@@ -36,8 +35,7 @@ Route::group(['middleware' => 'auth'], function() {
     Route::resource('aset', AsetController::class);
     Route::get('/search', [KategoriController::class, 'search'])->name('search');
     Route::get('/search', [LetakController::class, 'search'])->name('search');
-    Route::get('/search', [AsetController::class, 'search'])->name('search');
-    
+    Route::get('/search', [AsetController::class, 'search'])->name('search'); 
 });
 
 
