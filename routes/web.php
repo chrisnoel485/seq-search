@@ -22,10 +22,10 @@ use App\Http\Controllers\Auth\LoginController;
 
 
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
+Route::get('/', function() {
+    return redirect(route('login'));
+});
 
 Auth::routes();
 Route::group(['middleware' => 'auth'], function() {
