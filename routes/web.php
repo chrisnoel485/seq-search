@@ -38,5 +38,5 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('/search', [KategoriController::class, 'search'])->name('search');
     Route::get('/search', [LetakController::class, 'search'])->name('search');
     Route::get('/search', [AsetController::class, 'search'])->name('search'); 
-    Route::get('/home', 'HomeController@index')->name('home');
+    Route::get('/home', [HomeController::class, 'index'])->name('home');
 });
