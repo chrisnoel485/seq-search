@@ -32,10 +32,7 @@ Route::get('/', function() {
 
 Auth::routes();
 Route::group(['middleware' => 'auth'], function() {
-
-    Route::resource('/role', 'RoleController')->except([
-        'create', 'show', 'edit', 'update'
-    ]);
+    Route::resource('role', RoleController::class);
     Route::resource('kategori', KategoriController::class);
     Route::resource('jenis', JenisController::class);
     Route::resource('merek', MerekController::class);
