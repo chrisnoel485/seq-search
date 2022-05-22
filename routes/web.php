@@ -7,6 +7,7 @@ use App\Http\Controllers\JenisController;
 use App\Http\Controllers\LetakController;
 use App\Http\Controllers\AsetController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\HomeController;
 
 
 /*
