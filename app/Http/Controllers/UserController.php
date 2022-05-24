@@ -73,4 +73,10 @@ class UserController extends Controller
         return redirect()->route('letak.index')
             ->with(['success' => 'User Berhasil Dihapus']);
     }
+    public function show($id)
+    {
+       // User::find($id)->delete();
+        //return redirect()->route('letak.index')
+        //    ->with(['success' => 'User Berhasil Dihapus']);
+    }
 }
