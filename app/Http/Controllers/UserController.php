@@ -53,18 +53,21 @@ class UserController extends Controller
 
     public function update(Request $request, $id)
     {
-        $request->validate([
-            'name' => 'required',
-            'email' => 'required',
-            'password' => 'required',
+        $this->validate($request, [
+            'name' => 'required|string|max:100',
+            'email' => 'required|email|exists:users,email',
+            'password' => 'nullable|min:6',
+            'status' => 'required',
         ]);
-
-        //fungsi eloquent untuk mengupdate data inputan kita
-        User::find($id)->update($request->all());
-
-        //jika data berhasil diupdate, akan kembali ke halaman utama
-        return redirect()->route('user.index')
-            ->with('success', 'User Berhasil Diupdate');
+        
+        $user = User::findOrFail($id);
+        $password = !empty($request->password) ? bcrypt($request->password):$user->password;
+        $user->update([
+            'name' => $request->name,
+            'password' => $password,
+            'status' => $request->status
+        ]);
+        return redirect(route('user.index'))->with(['success' => 'User:' . $user->name . ' Diperbaharui']);
     }
 
     public function destroy($id)
