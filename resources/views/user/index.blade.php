@@ -65,12 +65,12 @@
                                             <td>{{ $user->name }}</td>
                                             <td>{{ $user->email }}</td>
                                             <td>
-                                                @foreach ($row->getRoleNames() as $role)
+                                                @foreach ($user->getRoleNames() as $role)
                                                 <label for="" class="badge badge-info">{{ $role }}</label>
                                                 @endforeach
                                             </td>
                                             <td>
-                                                @if ($row->status)
+                                                @if ($user->status)
                                                 <label class="badge badge-success">Aktif</label>
                                                 @else
                                                 <label for="" class="badge badge-default">Suspend</label>
