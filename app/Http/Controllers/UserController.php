@@ -53,30 +53,24 @@ class UserController extends Controller
 
     public function update(Request $request, $id)
     {
-        $this->validate($request, [
-            'name' => 'required|string|max:100',
-            'email' => 'required|email|exists:users,email',
-            'password' => 'nullable|min:6',
-            'status' => 'required',
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'password' => 'required',
         ]);
-        
-        $user = User::findOrFail($id);
-        $password = !empty($request->password) ? bcrypt($request->password):$user->password;
-        $user->update([
-            'name' => $request->name,
-            'password' => $password,
-            'status' => $request->status
-        ]);
-        return redirect(route('user.index'))->with(['success' => 'User:' . $user->name . ' Diperbaharui']);
+
+        //fungsi eloquent untuk mengupdate data inputan kita
+        User::find($id)->update($request->all());
+
+        //jika data berhasil diupdate, akan kembali ke halaman utama
+        return redirect()->route('user.index')
+            ->with('success', 'User Berhasil Diupdate');
     }
 
     public function destroy($id)
     {
-        //User::find($id)->delete();
-        //return redirect()->route('letak.index')
-        //    ->with(['success' => 'User:' . $user->name . ' Dihapus']);
-        $user = User::findOrFail($id);
-        $user->delete();
-        return redirect()->back()->with(['success' => 'User: ' . $user->name . 'Dihapus']);
+        User::find($id)->delete();
+        return redirect()->route('letak.index')
+            ->with(['success' => 'User Berhasil Dihapus']);
     }
 }
