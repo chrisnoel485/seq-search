@@ -19,11 +19,6 @@ class RoleController extends Controller
         //
         return view('role.create');
     }
-
-    public function create()
-    {
-        //
-    }
     public function store(Request $request)
     {
         $request->validate([
