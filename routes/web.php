@@ -9,6 +9,7 @@ use App\Http\Controllers\AsetController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RoleController;
+use App\Http\Controllers\UserController;
 
 
 /*
@@ -37,6 +38,7 @@ Route::group(['middleware' => 'auth'], function() {
     Route::resource('merek', MerekController::class);
     Route::resource('letak', LetakController::class);
     Route::resource('aset', AsetController::class);
+    Route::resource('user', UserController::class);
     Route::get('/search', [KategoriController::class, 'search'])->name('search');
     Route::get('/search', [LetakController::class, 'search'])->name('search');
     Route::get('/search', [AsetController::class, 'search'])->name('search'); 
