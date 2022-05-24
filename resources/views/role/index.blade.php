@@ -64,7 +64,7 @@
                                             <td>{{ $role->name }}</td>
                                             <td>{{ $role->guard_name }}</td>
                                             <td>{{ $role->created_at }}</td>
-                                            <td>
+                                            <td class="text-center">
                                                 <form action="{{ route('role.destroy',$role->id) }}" method="POST">
                                                     @csrf
                                                     @method('DELETE')
