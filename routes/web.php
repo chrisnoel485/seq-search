@@ -39,7 +39,7 @@ Route::group(['middleware' => 'auth'], function() {
     Route::resource('letak', LetakController::class);
     Route::resource('aset', AsetController::class);
     Route::resource('user', UserController::class);
-    Route::get('/user/roles/{id}', 'UserController@roles')->name('users.roles');
+    Route::get('/user/roles/{id}', 'UserController@roles')->name('user.roles');
     Route::get('/search', [KategoriController::class, 'search'])->name('search');
     Route::get('/search', [LetakController::class, 'search'])->name('search');
     Route::get('/search', [AsetController::class, 'search'])->name('search'); 
