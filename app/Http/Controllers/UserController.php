@@ -72,8 +72,11 @@ class UserController extends Controller
 
     public function destroy($id)
     {
-        User::find($id)->delete();
-        return redirect()->route('letak.index')
-            ->with(['success' => 'User:' . $user->name . ' Dihapus']);
+        //User::find($id)->delete();
+        //return redirect()->route('letak.index')
+        //    ->with(['success' => 'User:' . $user->name . ' Dihapus']);
+        $user = User::findOrFail($id);
+        $user->delete();
+        return redirect()->back()->with(['success' => 'User: ' . $user->name . 'Dihapus']);
     }
 }
