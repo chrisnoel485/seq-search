@@ -47,8 +47,8 @@
                                         @csrf
                                         <div class="form-group">
                                             <label for="nama">Nama Role</label>
-                                            <input type="text" name="nama" placeholder="Masukkan Nama Role" class="form-control" aria-describedby="nama">
-                                        </div>>
+                                            <input type="text" name="name" placeholder="Masukkan Nama Role" class="form-control" aria-describedby="nama">
+                                        </div>
                                         <div class="card-footer">
                                             <a href="{{ URL::to('role') }}" class="btn btn-outline-info">Kembali</a>
                                             <input type="submit" value="Proses" class="btn btn-primary pull-right">
