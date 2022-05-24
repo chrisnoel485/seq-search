@@ -60,13 +60,6 @@ class LetakController extends Controller
         Letak::create($request->all());
         return redirect()->route('letak.index')
             ->with('success', 'Letak Berhasil Ditambahkan');
-
-        //$book = new Book;
-        //$book->title = $request->title;
-        //$book->author_id = $request->author_id;
-        //$book->amount = $request->amount;
-        //$book->save();
-        //return redirect()->route('books.index');
     }
 
     /**
