@@ -146,4 +146,10 @@ class UserController extends Controller
  
         return redirect('/users');
     }
+    public function show($id)
+    {
+        //
+        //$letak = Letak::findOrFail($id);
+        //return view('letak.detail', compact('letak'));
+    }
 }
