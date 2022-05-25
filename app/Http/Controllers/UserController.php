@@ -11,21 +11,24 @@ class UserController extends Controller
     //
     public function index()
     {
-        $users = User::orderBy('created_at', 'DESC')->paginate(10);
-        return view('users.index', compact('users'));
+        //
+        $user = User::latest()->paginate(5);
+        return view('user.index', compact('user'))
+            ->with('i', (request()->input('page', 1) - 1) * 5);
     }
-    
+
     public function create()
     {
-        $role = Role::orderBy('name', 'ASC')->get();
-        return view('users.create', compact('role'));
+        //
+        $role = Role::all();
+        return view('user.create', compact('role'));
     }
-    
+
     public function store(Request $request)
     {
         $this->validate($request, [
             'name' => 'required|string|max:100',
-            'email' => 'required|email|unique:users',
+            'email' => 'required|email|unique:user',
             'password' => 'required|min:6',
             'role' => 'required|string|exists:roles,name'
         ]);
@@ -35,25 +38,24 @@ class UserController extends Controller
         ], [
             'name' => $request->name,
             'password' => bcrypt($request->password),
-            //'status' => $request->status
-            'status' => 1
+            'status' => 0
         ]);
         
         $user->assignRole($request->role);
-        return redirect(route('users.index'))->with(['success' => 'User: <strong>' . $user->name . '</strong> Ditambahkan']);
+        return redirect(route('user.index'))->with(['success' => 'User:' . $user->name . ' Ditambahkan']);
     }
-    
+
     public function edit($id)
     {
         $user = User::findOrFail($id);
-        return view('users.edit', compact('user'));
+        return view('user.edit', compact('user'));
     }
-    
+
     public function update(Request $request, $id)
     {
         $this->validate($request, [
             'name' => 'required|string|max:100',
-            'email' => 'required|email|exists:users,email',
+            'email' => 'required|email|exists:user,email',
             'password' => 'nullable|min:6',
             'status' => 'required',
         ]);
@@ -65,15 +67,22 @@ class UserController extends Controller
             'password' => $password,
             'status' => $request->status
         ]);
-        return redirect(route('users.index'))->with(['success' => 'User: <strong>' . $user->name . '</strong> Diperbaharui']);
-    }
-    public function destroy($id)
-    {
-        $user = User::findOrFail($id);
-        $user->delete();
-        return redirect()->back()->with(['success' => 'User: <strong>' . $user->name . '</strong> Dihapus']);
+        return redirect(route('user.index'))->with(['success' => 'User:' . $user->name . ' Diperbaharui']);
     }
 
+    public function destroy($id)
+    {
+        User::find($id)->delete();
+        return redirect()->route('letak.index')
+            ->with(['success' => 'User Berhasil Dihapus']);
+    }
+
+    public function roles(Request $request, $id)
+    {
+        $user = User::findOrFail($id);
+        $roles = Role::all()->pluck('name');
+        return view('user.roles', compact('user', 'roles'));
+    }
     public function rolePermission(Request $request)
     {
         $role = $request->get('role');
@@ -99,7 +108,7 @@ class UserController extends Controller
             //Mengambil data permission
             $permissions = Permission::all()->pluck('name');
         }
-        return view('users.role_permission', compact('roles', 'permissions', 'hasPermission'));
+        return view('user.role_permission', compact('roles', 'permissions', 'hasPermission'));
     }
 
     public function addPermission(Request $request)
@@ -123,14 +132,6 @@ class UserController extends Controller
         $role->syncPermissions($request->permission);
         return redirect()->back()->with(['success' => 'Permission to Role Saved!']);
     }
-    
-    public function roles(Request $request, $id)
-    {
-        $user = User::findOrFail($id);
-        $roles = Role::all()->pluck('name');
-        return view('users.roles', compact('user', 'roles'));
-    }
-
     public function setRole(Request $request, $id)
     {
         $this->validate($request, [
@@ -143,6 +144,12 @@ class UserController extends Controller
         $user->syncRoles($request->role);
         Session::flash('message','Succes Add  Role to User');
  
-        return redirect('/users');
+        return redirect('/user');
+    }
+    public function show($id)
+    {
+        //
+        //$letak = Letak::findOrFail($id);
+        //return view('letak.detail', compact('letak'));
     }
 }
