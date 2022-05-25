@@ -79,7 +79,7 @@
                                             <td>
                                                 <form action="{{ route('user.destroy',$user->id) }}" method="POST">
                                                     <a href="{{ route('user.roles', $user->id) }}" class="btn btn-info btn-sm">Role</a>
-                                                    <a class="btn btn-primary" href="{{ route('user.edit',$user->id) }}">Edit</a>
+                                                    <a class="btn btn-primary btn-sm" href="{{ route('user.edit',$user->id) }}">Edit</a>
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger">Delete</button>
