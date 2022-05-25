@@ -50,53 +50,48 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-12">
-                                <table class="table table-bordered table-hover">
-                                            <thead>
-                                                <tr>
-                                                    <td class="text-center">No</td>
-                                                    <td>Nama</td>
-                                                    <td>Email</td>
-                                                    <td>Role</td>
-                                                    <td>Status</td>
-                                                    <td class="text-center">Aksi</td>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                @php $no = 1; @endphp
-                                                @forelse ($users as $row)
-                                                <tr>
-                                                    <td class="text-center">{{ $no++ }}</td>
-                                                    <td>{{ $row->name }}</td>
-                                                    <td>{{ $row->email }}</td>
-                                                    <td>
-                                                        @foreach ($row->getRoleNames() as $role)
-                                                        <label for="" class="badge badge-info">{{ $role }}</label>
-                                                        @endforeach
-                                                    </td>
-                                                    <td>
-                                                        @if ($row->status)
-                                                        <label class="badge badge-success">Aktif</label>
-                                                        @else
-                                                        <label for="" class="badge badge-default">Suspend</label>
-                                                        @endif
-                                                    </td>
-                                                    <td class="text-center">
-                                                        <form action="{{ route('users.destroy', $row->id) }}" method="POST">
-                                                            @csrf
-                                                            <input type="hidden" name="_method" value="DELETE">
-                                                            <a href="{{ route('users.roles', $row->id) }}" class="btn btn-info btn-sm"><i class="fa fa-user-secret"></i></a>
-                                                            <a href="{{ route('users.edit', $row->id) }}" class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a>
-                                                            <button class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></button>
-                                                        </form>
-                                                    </td>
-                                                </tr>
-                                                @empty
-                                                <tr>
-                                                    <td colspan="10" class="text-center">Tidak ada data</td>
-                                                </tr>
-                                                @endforelse
-                                            </tbody>
-                                        </table>
+                                    <table class="table table-bordered">
+                                        <tr>
+                                            <th class="text-center">No</th>
+                                            <th class="text-center">Nama</th>
+                                            <th class="text-center">Email</th>
+                                            <th class="text-center">Role</th>
+                                            <th class="text-center">Status</th>
+                                            <th width="280px" class="text-center">Action</th>
+                                        </tr>
+                                        @forelse ($user as $user)
+                                        <tr>
+                                            <td class="text-center">{{ ++$i }}</td>
+                                            <td>{{ $user->name }}</td>
+                                            <td>{{ $user->email }}</td>
+                                            <td>
+                                                @foreach ($user->getRoleNames() as $role)
+                                                <label for="" class="badge badge-info">{{ $role }}</label>
+                                                @endforeach
+                                            </td>
+                                            <td>
+                                                @if ($user->status)
+                                                <label class="badge badge-success">Aktif</label>
+                                                @else
+                                                <label for="" class="badge badge-default">Suspend</label>
+                                                @endif
+                                            </td>
+                                            <td>
+                                                <form action="{{ route('user.destroy',$user->id) }}" method="POST">
+                                                    <a href="{{ route('user.roles', $user->id) }}" class="btn btn-info btn-sm">Role</a>
+                                                    <a class="btn btn-primary" href="{{ route('user.edit',$user->id) }}">Edit</a>
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                        @empty
+                                        <tr>
+                                            <td colspan="9" class="text-center">Tidak ada data</td>
+                                        </tr>
+                                        @endforelse
+                                    </table>
                                 </div>
                             </div>
                         </div>

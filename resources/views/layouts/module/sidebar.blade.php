@@ -44,7 +44,7 @@
          
           <li class="nav-header">Management User</li>
           <li class="nav-item">
-            <a href="{{ route('users.index') }}" class="nav-link">
+            <a href="{{ route('user.index') }}" class="nav-link">
               <i class="nav-icon fas fa-file"></i>
               <p>User</p>
             </a>
@@ -56,7 +56,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="{{ route('users.roles_permission') }}" class="nav-link">
+            <a href="{{ route('user.roles_permission') }}" class="nav-link">
               <i class="nav-icon fas fa-file"></i>
               <p>Role Permission</p>
             </a>

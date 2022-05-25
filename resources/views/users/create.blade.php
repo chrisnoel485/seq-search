@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('title')
-    <title>Add New Users</title>
+    <title>Daftar User</title>
 @endsection
 
 @section('content')
@@ -42,41 +42,38 @@
                             </div>
                             @endif
                             <div class="row">
-                                    <div class="col-md-12">
-                                        <form action="{{ route('users.store') }}" method="POST">
-                                            @csrf
-                                            <div class="form-group">
-                                                <label for="">Nama</label>
-                                                <input type="text" name="name" class="form-control {{ $errors->has('name') ? 'is-invalid':'' }}" required>
-                                                <p class="text-danger">{{ $errors->first('name') }}</p>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="">Email</label>
-                                                <input type="email" name="email" class="form-control {{ $errors->has('email') ? 'is-invalid':'' }}" required>
-                                                <p class="text-danger">{{ $errors->first('email') }}</p>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="">Password</label>
-                                                <input type="password" name="password" class="form-control {{ $errors->has('password') ? 'is-invalid':'' }}" required>
-                                                <p class="text-danger">{{ $errors->first('password') }}</p>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="">Role</label>
-                                                <select name="role" class="form-control {{ $errors->has('role') ? 'is-invalid':'' }}" required>
-                                                    <option value="">Pilih</option>
-                                                    @foreach ($role as $row)
-                                                    <option value="{{ $row->name }}">{{ $row->name }}</option>
-                                                    @endforeach
-                                                </select>
-                                                <p class="text-danger">{{ $errors->first('role') }}</p>
-                                            </div>
-                                            <div class="card-footer">
-                                                <a href="{{ URL::to('users') }}" class="btn btn-outline-info">Kembali</a>
-                                                <input type="submit" value="Proses" class="btn btn-primary pull-right">
-                                            </div>
-                                        </form>
-                                    </div>
+                                <div class="col-md-12">
+                                    <form action="{{ route('user.store') }}" method="POST">
+                                        @csrf
+                                        <div class="form-group">
+                                            <label for="nama">Nama User</label>
+                                            <input type="text" name="name" placeholder="Masukkan Nama User" class="form-control" aria-describedby="nama">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="email">Email</label>                    
+                                            <input type="email" name="email" class="form-control" id="email" aria-describedby="email" >                
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="password">Password</label>                    
+                                            <input type="password" name="password" class="form-control" id="password" aria-describedby="password" >                
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="">Role</label>
+                                            <select name="role" class="form-control {{ $errors->has('role') ? 'is-invalid':'' }}" required>
+                                                <option value="">Pilih</option>
+                                                @foreach ($role as $row)
+                                                <option value="{{ $row->name }}">{{ $row->name }}</option>
+                                                @endforeach
+                                            </select>
+                                            <p class="text-danger">{{ $errors->first('role') }}</p>
+                                        </div>
+                                        <div class="card-footer">
+                                            <a href="{{ URL::to('user') }}" class="btn btn-outline-info">Kembali</a>
+                                            <input type="submit" value="Proses" class="btn btn-primary pull-right">
+                                        </div>
+                                    </form>
                                 </div>
+                            </div>
                         </div>
                     </div>
                 </div>
