@@ -5,11 +5,14 @@ use Spatie\Permission\Models\Role;
 use App\Models\User;
 use Spatie\Permission\Models\Permission;
 use Illuminate\Http\Request;
+use DB;
+use Hash;
+use Illuminate\Support\Arr;
 
 class UserController extends Controller
 {
     //
-    public function index()
+    public function index(Request $request)
     {
         //
         $user = User::latest()->paginate(5);
