@@ -38,12 +38,12 @@ Route::group(['middleware' => 'auth'], function() {
     Route::resource('merek', MerekController::class);
     Route::resource('letak', LetakController::class);
     Route::resource('aset', AsetController::class);
-    Route::resource('user', UserController::class);
-    Route::get('/user/roles/{id}', 'UserController@roles')->name('user.roles');    
-    Route::put('/user/roles/{id}', 'UserController@setRole')->name('user.set_role');
-    Route::post('/user/permission', 'UserController@addPermission')->name('user.add_permission');
-    Route::get('/user/role-permission', 'UserController@rolePermission')->name('user.roles_permission');
-    Route::put('/user/permission/{role}', 'UserController@setRolePermission')->name('user.setRolePermission');
+    Route::resource('users', UserController::class);
+    Route::get('/users/roles/{id}', 'UserController@roles')->name('users.roles');
+    Route::put('/users/roles/{id}', 'UserController@setRole')->name('users.set_role');
+    Route::post('/users/permission', 'UserController@addPermission')->name('users.add_permission');
+    Route::get('/users/role-permission', 'UserController@rolePermission')->name('users.roles_permission');
+    Route::put('/users/permission/{role}', 'UserController@setRolePermission')->name('users.setRolePermission');
     Route::get('/search', [KategoriController::class, 'search'])->name('search');
     Route::get('/search', [LetakController::class, 'search'])->name('search');
     Route::get('/search', [AsetController::class, 'search'])->name('search'); 
