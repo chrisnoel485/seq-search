@@ -55,12 +55,6 @@
               <p>Role</p>
             </a>
           </li>
-          <li class="nav-item">
-            <a href="{{ route('user.roles_permission') }}" class="nav-link">
-              <i class="nav-icon fas fa-file"></i>
-              <p>Role Permission</p>
-            </a>
-          </li>
           <li class="nav-header">Management Aset</li>
           <li class="nav-item">
             <a href="{{ route('aset.index') }}" class="nav-link">
