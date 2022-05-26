@@ -30,7 +30,9 @@
                                 <h3 class="card-title">Data Role</h3>
                             </div>
                             <div class="card-tools">
+                                @can('role-create')
                                 <a href="/role/create" class="btn btn-primary">Input Role Baru</a>
+                                @endcan
                             </div>
                         </div>
                         <div class="card-header">
