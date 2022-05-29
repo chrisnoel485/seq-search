@@ -103,7 +103,6 @@ class UserController extends Controller
         //menggunakan syncRoles agar terlebih dahulu menghapus semua role yang dimiliki
         //kemudian di-set kembali agar tidak terjadi duplicate
         $user->syncRoles($request->role);
-        Session::flash('message','Succes Add  Role to User');
  
         return redirect('/user');
     }
