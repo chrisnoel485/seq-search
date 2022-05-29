@@ -31,7 +31,7 @@ class UserController extends Controller
     {
         $this->validate($request, [
             'name' => 'required|string|max:100',
-            'email' => 'required|email|unique:user',
+            'email' => 'required|email|unique:users',
             'password' => 'required|min:6',
             'role' => 'required|string|exists:roles,name'
         ]);
@@ -41,11 +41,11 @@ class UserController extends Controller
         ], [
             'name' => $request->name,
             'password' => bcrypt($request->password),
-            'status' => 0
+            'status' => 1
         ]);
         
         $user->assignRole($request->role);
-        return redirect(route('user.index'))->with(['success' => 'User:' . $user->name . ' Ditambahkan']);
+        return redirect(route('users.index'))->with(['success' => 'User: <strong>' . $user->name . '</strong> Ditambahkan']);
     }
 
     public function edit($id)
