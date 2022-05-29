@@ -54,7 +54,7 @@ class UserController extends Controller
         $role = Role::pluck('name','name')->all();
         $userRole = $user->role->pluck('name','name')->all();
     
-        return view('users.edit',compact('user','role','userRole'));
+        return view('user.edit',compact('user','role','userRole'));
 
         //$role = Role::all();
         //$user = User::findOrFail($id);
