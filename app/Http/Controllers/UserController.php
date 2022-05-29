@@ -67,7 +67,6 @@ class UserController extends Controller
             'email' => 'required|email|exists:user,email',
             'password' => 'nullable|min:6',
             'status' => 'required',
-            'role' => 'required',
         ]);
         
         $user = User::findOrFail($id);
