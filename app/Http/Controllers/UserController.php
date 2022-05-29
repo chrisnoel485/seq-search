@@ -50,8 +50,9 @@ class UserController extends Controller
 
     public function edit($id)
     {
+        $role = Role::all();
         $user = User::findOrFail($id);
-        return view('user.edit', compact('user'));
+        return view('user.edit', compact('user','role'));
     }
 
     public function update(Request $request, $id)
@@ -61,6 +62,7 @@ class UserController extends Controller
             'email' => 'required|email|exists:user,email',
             'password' => 'nullable|min:6',
             'status' => 'required',
+            'role' => 'required',
         ]);
         
         $user = User::findOrFail($id);
