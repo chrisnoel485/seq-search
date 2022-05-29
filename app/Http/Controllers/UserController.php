@@ -77,22 +77,21 @@ class UserController extends Controller
             'password' => $password,
             'status' => $request->status
         ]);
-        $user->assignRole($request->role);
         return redirect(route('user.index'))->with(['success' => 'User:' . $user->name . ' Diperbaharui']);
     }
 
     public function destroy($id)
     {
         User::find($id)->delete();
-        return redirect()->route('letak.index')
+        return redirect()->route('user.index')
             ->with(['success' => 'User Berhasil Dihapus']);
     }
 
-    public function roles(Request $request, $id)
+    public function role(Request $request, $id)
     {
         $user = User::findOrFail($id);
-        $roles = Role::all()->pluck('name');
-        return view('user.roles', compact('user', 'roles'));
+        $role = Role::all()->pluck('name');
+        return view('user.role', compact('user', 'role'));
     }
     public function rolePermission(Request $request)
     {
