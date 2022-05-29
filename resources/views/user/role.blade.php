@@ -31,7 +31,7 @@
                             </div>
                         </div>
                         <div class="card-body">
-                            <form action="{{ route('user.role', $user->id) }}" method="post">
+                            <form action="{{ route('user.setrole', $user->id) }}" method="post">
                                     @csrf
                                     <input type="hidden" name="_method" value="PUT">
                                     <div class="table-responsive">
