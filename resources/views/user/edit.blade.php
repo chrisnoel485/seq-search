@@ -77,7 +77,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label for="">Role</label>
-                                            @foreach ($role as $row)
+                                            @foreach ($roles as $row)
                                             <input type="radio" name="role" 
                                                 {{ $user->hasRole($row) ? 'checked':'' }}
                                                 value="{{ $row }}"> {{  $row }} <br>
