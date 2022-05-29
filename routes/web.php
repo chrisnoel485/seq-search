@@ -6,10 +6,11 @@ use App\Http\Controllers\MerekController;
 use App\Http\Controllers\JenisController;
 use App\Http\Controllers\LetakController;
 use App\Http\Controllers\AsetController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RoleController;
-use App\Http\Controllers\UserController;
+
 
 
 /*
