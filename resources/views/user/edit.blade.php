@@ -75,6 +75,14 @@
                                                 <option value="0" {{ $user->status =='0'?'selected':'' }}>Suspend</option>
                                             </select>
                                         </div>
+                                        <div class="form-group">
+                                            <label for="">Role</label>
+                                            @foreach ($role as $row)
+                                            <input type="radio" name="role" 
+                                                {{ $user->hasRole($row) ? 'checked':'' }}
+                                                value="{{ $row }}"> {{  $row }} <br>
+                                            @endforeachr
+                                        </div>
                                         <div class="card-footer">
                                             <a href="{{ URL::to('user') }}" class="btn btn-outline-info">Kembali</a>
                                             <button class="btn btn-info">Update</button>

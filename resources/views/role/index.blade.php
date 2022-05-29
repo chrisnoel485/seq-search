@@ -30,9 +30,9 @@
                                 <h3 class="card-title">Data Role</h3>
                             </div>
                             <div class="card-tools">
-                                <!--  @can('role-create') -->
+                                @can('role-create')
                                 <a href="/role/create" class="btn btn-primary">Input Role Baru</a>
-                                <!-- @endcan -->
+                                @endcan
                             </div>
                         </div>
                         <div class="card-header">
@@ -68,14 +68,14 @@
                                             <td>{{ $role->created_at }}</td>
                                             <td>
                                                 <a class="btn btn-info" href="{{ route('role.show',$role->id) }}">Show</a>
-                                                <!-- @can('role-edit') -->
+                                                @can('role-edit')
                                                 <a class="btn btn-primary" href="{{ route('role.edit',$role->id) }}">Edit</a>
-                                                <!-- @endcan -->
-                                                <!-- @can('role-delete') -->
+                                                @endcan
+                                                @can('role-delete')
                                                     {!! Form::open(['method' => 'DELETE','route' => ['roles.destroy', $role->id],'style'=>'display:inline']) !!}
                                                     {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
                                                     {!! Form::close() !!}
-                                                <!-- @endcan -->
+                                                @endcan
                                             </td>
                                         </tr>
                                         @empty

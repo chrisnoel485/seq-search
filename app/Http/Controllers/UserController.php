@@ -72,6 +72,7 @@ class UserController extends Controller
             'password' => $password,
             'status' => $request->status
         ]);
+        $user->assignRole($request->role);
         return redirect(route('user.index'))->with(['success' => 'User:' . $user->name . ' Diperbaharui']);
     }
 
