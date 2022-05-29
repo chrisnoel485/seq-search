@@ -81,7 +81,7 @@
                                             <input type="radio" name="role" 
                                                 {{ $user->hasRole($row) ? 'checked':'' }}
                                                 value="{{ $row }}"> {{  $row }} <br>
-                                            @endforeachr
+                                            @endforeach
                                         </div>
                                         <div class="card-footer">
                                             <a href="{{ URL::to('user') }}" class="btn btn-outline-info">Kembali</a>
