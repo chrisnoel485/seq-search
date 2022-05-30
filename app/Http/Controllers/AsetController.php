@@ -24,6 +24,14 @@ class AsetController extends Controller
         return view('aset.index', compact('aset'))
         ->with('i', (request()->input('page', 1) - 1) * 5);
     }
+
+    public function posisi()
+    {
+        //
+        $aset = Aset::findOrFail($id);
+        return view('aset.posisi', compact('aset'));
+    }
+
     public function search(Request $request)
     {
         $search = $request->search;        
