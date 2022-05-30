@@ -67,6 +67,6 @@
 </table>
 
 
-{!! $roles->render() !!}
+{!! $role->render() !!}
 </div>
 @stop
