@@ -80,10 +80,6 @@
                                                 </form>
                                             </td>
                                         </tr>
-                                        @empty
-                                        <tr>
-                                            <td colspan="4" class="text-center">Tidak ada data</td>
-                                        </tr>
                                         @endforeach
                                     </table>
                                 </div>
