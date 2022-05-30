@@ -45,7 +45,7 @@ class UserController extends Controller
         ]);
         
         $user->assignRole($request->role);
-        return redirect(route('user.index'))->with(['success' => 'User: <strong>' . $user->name . '</strong> Ditambahkan']);
+        return redirect(route('user.index'))->with(['success' => 'User:' . $user->name . ' Ditambahkan']);
     }
 
     public function edit($id)
@@ -71,11 +71,12 @@ class UserController extends Controller
         
         $user = User::findOrFail($id);
         $password = !empty($request->password) ? bcrypt($request->password):$user->password;
-        $user->update([
-            'name' => $request->name,
-            'password' => $password,
-            'status' => $request->status
-        ]);
+        User::find($id)->update($request->all());
+        //$user->update([
+        //    'name' => $request->name,
+        //    'password' => $password,
+        //    'status' => $request->status
+        //]);
         return redirect(route('user.index'))->with(['success' => 'User:' . $user->name . ' Diperbaharui']);
     }
 
