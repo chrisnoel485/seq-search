@@ -30,7 +30,9 @@
                                 <h3 class="card-title">Data Jenis</h3>
                             </div>
                             <div class="card-tools">
+                                @can('jenis-create')
                                 <a href="/jenis/create" class="btn btn-primary">Input Jenis Baru</a>
+                                @endcan
                             </div>
                         </div>
                         <div class="card-header">
@@ -65,10 +67,14 @@
                                             <td>
                                                 <form action="{{ route('jenis.destroy',$jenis->id) }}" method="POST">
                                                     <a class="btn btn-info" href="{{ route('jenis.show',$jenis->id) }}">Show</a>
+                                                    @can('jenis-edit')
                                                     <a class="btn btn-primary" href="{{ route('jenis.edit',$jenis->id) }}">Edit</a>
+                                                    @endcan
                                                     @csrf
                                                     @method('DELETE')
+                                                    @can('jenis-delete')
                                                     <button type="submit" class="btn btn-danger">Delete</button>
+                                                    @endcan
                                                 </form>
                                             </td>
                                         </tr>

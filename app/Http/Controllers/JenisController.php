@@ -12,6 +12,15 @@ class JenisController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    function __construct()
+    {
+         $this->middleware('permission:jenis-list|jenis-create|jenis-edit|jenis-delete', ['only' => ['index','show']]);
+         $this->middleware('permission:jenis-create', ['only' => ['create','store']]);
+         $this->middleware('permission:jenis-edit', ['only' => ['edit','update']]);
+         $this->middleware('permission:jenis-delete', ['only' => ['destroy']]);
+    }
+
     public function index()
     {
         //
