@@ -60,7 +60,7 @@
                                             <th class="text-center">Created At</th>
                                             <th width="280px" class="text-center">Action</th>
                                         </tr>
-                                        @foreach ($roles as $key => $role)
+                                        @foreach ($role as $key => $role)
                                         <tr>
                                             <td>{{ ++$i }}</td>
                                             <td>{{ $role->name }}</td>
