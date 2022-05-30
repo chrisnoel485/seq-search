@@ -30,7 +30,9 @@
                                 <h3 class="card-title">Data Merek</h3>
                             </div>
                             <div class="card-tools">
+                                @can('merek-create')
                                 <a href="/merek/create" class="btn btn-primary">Input Merek Baru</a>
+                                @endcan
                             </div>
                         </div>
                         <div class="card-header">
@@ -65,10 +67,14 @@
                                             <td>
                                                 <form action="{{ route('merek.destroy',$merek->id) }}" method="POST">
                                                     <a class="btn btn-info" href="{{ route('merek.show',$merek->id) }}">Show</a>
+                                                    @can('merek-edit')
                                                     <a class="btn btn-primary" href="{{ route('merek.edit',$merek->id) }}">Edit</a>
+                                                    @endcan
                                                     @csrf
                                                     @method('DELETE')
+                                                    @can('merek-delete')
                                                     <button type="submit" class="btn btn-danger">Delete</button>
+                                                    @endcan
                                                 </form>
                                             </td>
                                         </tr>

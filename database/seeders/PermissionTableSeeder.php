@@ -23,7 +23,19 @@ class PermissionTableSeeder extends Seeder
             'jenis-list',
             'jenis-create',
             'jenis-edit',
-            'jenis-delete'
+            'jenis-delete',
+            'merek-list',
+            'merek-create',
+            'merek-edit',
+            'merek-delete',
+            'kategori-list',
+            'kategori-create',
+            'kategori-edit',
+            'kategori-delete',
+            'letak-list',
+            'letak-create',
+            'letak-edit',
+            'letak-delete'
          ];
       
          foreach ($permissions as $permission) {

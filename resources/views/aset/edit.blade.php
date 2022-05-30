@@ -55,8 +55,24 @@
                                             <textarea name="deskripsi" id="deskripsi" cols="5" rows="5" class="form-control" aria-describedby="deskripsi" >{{ $aset->deskripsi }}</textarea>
                                         </div>
                                         <div class="form-group">
-                                            <label for="">Nama Letak</label>
-                                            <select name="letak_id" class="form-control @error('letak_id') is-invalid @enderror">
+                                            <label for="">Letak Lama</label>
+                                            <select disabled="disabled" name="letak_id_lama" class="form-control @error('letak_id') is-invalid @enderror">
+                                                <option value="">Pilih Letak</option>
+                                                    @foreach ($letak as $row)
+                                                        <option value="{{ $row->id }}" {{ $row->id == $aset->letak_id ? 'selected':'' }}>
+                                                            {{ ucfirst($row->nama) }}
+                                                        </option>
+                                                    @endforeach
+                                            </select>
+                                            @error('letak_id')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                            @enderror
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="">Letak Baru</label>
+                                            <select name="letak_id_baru" class="form-control @error('letak_id') is-invalid @enderror">
                                                 <option value="">Pilih Letak</option>
                                                     @foreach ($letak as $row)
                                                         <option value="{{ $row->id }}" {{ $row->id == $aset->letak_id ? 'selected':'' }}>

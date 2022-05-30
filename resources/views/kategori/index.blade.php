@@ -30,7 +30,9 @@
                                 <h3 class="card-title">Data Kategori</h3>
                             </div>
                             <div class="card-tools">
+                                @can('kategori-create')
                                 <a href="/kategori/create" class="btn btn-primary">Input Kategori Baru</a>
+                                @endcan
                             </div>
                         </div>
                         <div class="card-header">
@@ -65,10 +67,14 @@
                                             <td>
                                                 <form action="{{ route('kategori.destroy',$kategori->id) }}" method="POST">
                                                     <a class="btn btn-info" href="{{ route('kategori.show',$kategori->id) }}">Show</a>
+                                                    @can('kategori-edit')
                                                     <a class="btn btn-primary" href="{{ route('kategori.edit',$kategori->id) }}">Edit</a>
+                                                    @endcan
                                                     @csrf
                                                     @method('DELETE')
+                                                    @can('kategori-delete')
                                                     <button type="submit" class="btn btn-danger">Delete</button>
+                                                    @endcan
                                                 </form>
                                             </td>
                                         </tr>

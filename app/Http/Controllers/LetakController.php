@@ -13,6 +13,14 @@ class LetakController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    function __construct()
+    {
+         $this->middleware('permission:letak-list|letak-create|letak-edit|letak-delete', ['only' => ['index','show']]);
+         $this->middleware('permission:letak-create', ['only' => ['create','store']]);
+         $this->middleware('permission:letak-edit', ['only' => ['edit','update']]);
+         $this->middleware('permission:letak-delete', ['only' => ['destroy']]);
+    }
+
     public function index()
     {
         //

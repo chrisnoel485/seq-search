@@ -30,7 +30,9 @@
                                 <h3 class="card-title">Data Letak</h3>
                             </div>
                             <div class="card-tools">
+                                @can('letak-create')
                                 <a href="/letak/create" class="btn btn-primary">Input Letak Baru</a>
+                                @endcan
                             </div>
                         </div>
                         <div class="card-header">
@@ -67,10 +69,14 @@
                                             <td>
                                                 <form action="{{ route('letak.destroy',$letak->id) }}" method="POST">
                                                     <a class="btn btn-info" href="{{ route('letak.show',$letak->id) }}">Show</a>
+                                                    @can('letak-edit')
                                                     <a class="btn btn-primary" href="{{ route('letak.edit',$letak->id) }}">Edit</a>
+                                                    @endcan
                                                     @csrf
                                                     @method('DELETE')
+                                                    @can('letak-delete')
                                                     <button type="submit" class="btn btn-danger">Delete</button>
+                                                    @endcan
                                                 </form>
                                             </td>
                                         </tr>

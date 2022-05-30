@@ -12,6 +12,13 @@ class MerekController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    function __construct()
+    {
+         $this->middleware('permission:merek-list|merek-create|merek-edit|merek-delete', ['only' => ['index','show']]);
+         $this->middleware('permission:merek-create', ['only' => ['create','store']]);
+         $this->middleware('permission:merek-edit', ['only' => ['edit','update']]);
+         $this->middleware('permission:merek-delete', ['only' => ['destroy']]);
+    }
     public function index()
     {
         //

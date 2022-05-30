@@ -114,7 +114,7 @@ class AsetController extends Controller
         $request->validate([
             'nama' => 'required',
             'deskripsi' => 'required',
-            'letak_id' => 'required',
+            'letak_id_baru' => 'required',
             'merek_id' => 'required',
             'kategori_id' => 'required',
             'jenis_id' => 'required',
