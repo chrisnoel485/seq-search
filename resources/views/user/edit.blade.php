@@ -62,10 +62,8 @@
                                             <p class="text-danger">{{ $errors->first('email') }}</p>
                                         </div>
                                         <div class="form-group">
-                                            <label for="">Password</label>
-                                            <input type="password" name="password" 
-                                                class="form-control {{ $errors->has('password') ? 'is-invalid':'' }}">
-                                            <p class="text-danger">{{ $errors->first('password') }}</p>
+                                            <label for="writer">Password</label>                    
+                                            <input type="password" name="password" class="form-control" id="password" value="{{ $user->password }}" aria-describedby="password" >
                                             <p class="text-warning">Biarkan kosong, jika tidak ingin mengganti password</p>
                                         </div>
                                         <div class="form-group">
