@@ -45,7 +45,7 @@ class UserController extends Controller
         ]);
         
         $user->assignRole($request->role);
-        return redirect(route('users.index'))->with(['success' => 'User: <strong>' . $user->name . '</strong> Ditambahkan']);
+        return redirect(route('user.index'))->with(['success' => 'User: <strong>' . $user->name . '</strong> Ditambahkan']);
     }
 
     public function edit($id)
