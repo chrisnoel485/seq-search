@@ -130,7 +130,22 @@ class AsetController extends Controller
         ]);
 
         //fungsi eloquent untuk mengupdate data inputan kita
-        Aset::find($id)->update($request->all());
+        //Aset::find($id)->update($request->all());
+        $aset = Aset::findOrFail($id);
+        $aset->update([
+            'nama' => $request->nama,
+            'deskripsi' => $request->deskripsi,
+            'letak_id' => $request->letak_id_baru,
+            'merek_id' => $request->merek_id,
+            'kategori_id' => $request->kategori_id,
+            'jenis_id' => $request->jenis_id,
+            'status_id' => $request->status_id,
+        ]);
+
+        //DB::table('aset_posisi')->insert([
+        //   'aset_id' => $id,
+        //    'letak_id' => $request->letak_id_lama,
+        //]);
 
         //jika data berhasil diupdate, akan kembali ke halaman utama
         return redirect()->route('aset.index')
