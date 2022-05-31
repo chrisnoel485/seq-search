@@ -9,6 +9,8 @@ use App\Models\Jenis;
 use App\Models\Merek;
 use App\Models\Status;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Input;
 
 class AsetController extends Controller
 {
@@ -123,6 +125,7 @@ class AsetController extends Controller
             'nama' => 'required',
             'deskripsi' => 'required',
             'letak_id_baru' => 'required',
+            'letak_id_lama' => 'required',
             'merek_id' => 'required',
             'kategori_id' => 'required',
             'jenis_id' => 'required',
@@ -142,10 +145,10 @@ class AsetController extends Controller
             'status_id' => $request->status_id,
         ]);
 
-        //DB::table('aset_posisi')->insert([
-        //   'aset_id' => $id,
-        //    'letak_id' => $request->letak_id_lama,
-        //]);
+        DB::table('asetposisi')->insert([
+            'aset_id' => $id,
+            'letak_id' => $request->letak_id_lama,
+        ]);
 
         //jika data berhasil diupdate, akan kembali ke halaman utama
         return redirect()->route('aset.index')
