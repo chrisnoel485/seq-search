@@ -60,7 +60,7 @@
                                             <th class="text-center">Kategori</th>
                                             <th class="text-center">Jenis</th>
                                             <th class="text-center">Status</th>
-                                            <th width="280px" class="text-center">Action</th>
+                                            <th class="text-center">Action</th>
                                         </tr>
                                         @forelse ($aset as $aset)
                                         <tr>
@@ -72,7 +72,7 @@
                                             <td>{{ $aset->kategori->nama }}</td>
                                             <td>{{ $aset->jenis->nama }}</td>
                                             <td>{{ $aset->status->nama }}</td>
-                                            <td class="text-center">
+                                            <td>
                                                 <form action="{{ route('aset.destroy',$aset->id) }}" method="POST">
                                                     <a class="btn btn-primary" href="{{ route('aset.posisi',$aset->id) }}">Letak</a>
                                                     <a class="btn btn-info" href="{{ route('aset.show',$aset->id) }}">Show</a>
