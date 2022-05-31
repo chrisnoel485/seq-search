@@ -60,7 +60,7 @@
                                             <th class="text-center">Kategori</th>
                                             <th class="text-center">Jenis</th>
                                             <th class="text-center">Status</th>
-                                            <th class="text-center">Action</th>
+                                            <th width="300px" class="text-center">Action</th>
                                         </tr>
                                         @forelse ($aset as $aset)
                                         <tr>
