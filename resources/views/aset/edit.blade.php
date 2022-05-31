@@ -56,7 +56,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label for="">Letak Lama</label>
-                                            <select disabled="disabled" name="letak_id_lama" class="form-control @error('letak_id') is-invalid @enderror">
+                                            <select name="letak_id_lama" class="form-control @error('letak_id') is-invalid @enderror">
                                                 <option value="">Pilih Letak</option>
                                                     @foreach ($letak as $row)
                                                         <option value="{{ $row->id }}" {{ $row->id == $aset->letak_id ? 'selected':'' }}>
