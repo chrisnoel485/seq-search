@@ -72,14 +72,14 @@
                                             <td>{{ $aset->kategori->nama }}</td>
                                             <td>{{ $aset->jenis->nama }}</td>
                                             <td>{{ $aset->status->nama }}</td>
-                                            <td>
+                                            <td class="text-center">
                                                 <form action="{{ route('aset.destroy',$aset->id) }}" method="POST">
+                                                    <a class="btn btn-primary" href="{{ route('aset.posisi',$aset->id) }}">Letak</a>
                                                     <a class="btn btn-info" href="{{ route('aset.show',$aset->id) }}">Show</a>
                                                     <a class="btn btn-primary" href="{{ route('aset.edit',$aset->id) }}">Edit</a>
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger">Delete</button>
-                                                    <a class="btn btn-primary" href="{{ route('aset.posisi',$aset->id) }}">Letak</a>
                                                 </form>
                                             </td>
                                         </tr>
