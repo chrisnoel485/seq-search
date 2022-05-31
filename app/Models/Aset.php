@@ -37,8 +37,8 @@ class Aset extends Model
         {
             return $this->belongsTo('App\Models\Letak', 'letak_id');
         }
-    public function posisi()
-        {
-            return $this->belongsToMany('App\Models\Letak');
-        }
+    #public function asetposisi()
+    #    {
+    #        return $this->belongsToMany('App\Models\Letak');
+    #    }
 }

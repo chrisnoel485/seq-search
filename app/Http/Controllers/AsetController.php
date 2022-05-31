@@ -8,6 +8,7 @@ use App\Models\Kategori;
 use App\Models\Jenis;
 use App\Models\Merek;
 use App\Models\Status;
+use App\Models\Asetposisi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
@@ -145,7 +146,7 @@ class AsetController extends Controller
             'status_id' => $request->status_id,
         ]);
 
-        DB::table('asetposisi')->insert([
+        DB::table('asetposisis')->insert([
             'aset_id' => $id,
             'letak_id' => $request->letak_id_lama,
         ]);
