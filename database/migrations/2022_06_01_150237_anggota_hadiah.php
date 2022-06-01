@@ -14,7 +14,7 @@ class AnggotaHadiah extends Migration
     public function up()
     {
         //
-        Schema::create('anggota_hadiahs', function (Blueprint $table) {
+        Schema::create('anggota_hadiah', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('angota_id')->unsigned();;
             $table->integer('hadiah_id')->unsigned();;
