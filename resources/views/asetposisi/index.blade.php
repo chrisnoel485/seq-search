@@ -53,9 +53,10 @@
                                             <th class="text-center">Nama</th>
                                             <th class="text-center">Letak</th>
                                         </tr>
+                                        @php $no = 1; @endphp
                                         @forelse ($aset as $aset)
                                         <tr>
-                                            <td class="text-center">{{ ++$i }}</td>
+                                            <td class="text-center">{{ $no++ }}</td>
                                             <td>{{ $aset->nama }}</td>
                                             <td>
                                                 @foreach($aset->letak as $h)
