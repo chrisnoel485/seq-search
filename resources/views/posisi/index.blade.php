@@ -53,8 +53,10 @@
                                             <th class="text-center">Nama Aset</th>
                                             <th class="text-center">History Posisi Aset</th>
                                         </tr>
+                                        @php $no = 1; @endphp
                                         @foreach($anggota as $a)
                                         <tr>
+                                            <td class="text-center">{{ $no++ }}</td>
                                             <td>{{ $a->nama }}</td>
                                             <td>
                                                 <ul>
