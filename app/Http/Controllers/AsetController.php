@@ -31,7 +31,7 @@ class AsetController extends Controller
     public function posisi($id)
     {
         //
-        $aset = Aset::findOrFail($id)
+        $aset = Aset::findOrFail($id);
     	return view('aset.posisi', ['aset' => $aset]);
         
         //$aset = Aset::findOrFail($id);
