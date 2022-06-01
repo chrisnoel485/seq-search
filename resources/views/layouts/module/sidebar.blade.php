@@ -63,6 +63,12 @@
             </a>
           </li>
           <li class="nav-item">
+            <a href="{{ route('posisi.index') }}" class="nav-link">
+              <i class="nav-icon fas fa-file"></i>
+              <p>History Aset</p>
+            </a>
+          </li>
+          <li class="nav-item">
             <a href="{{ route('kategori.index') }}" class="nav-link">
               <i class="nav-icon fas fa-file"></i>
               <p>kategori</p>
