@@ -17,15 +17,8 @@ class AsetposisiController extends Controller
     public function index()
     {
         //
-<<<<<<< HEAD
-        $aseta = AsetA::get();
-    	return view('asetposisi.index', ['aseta' => $aseta]);
-        //$aseta = AsetA::orderBy('created_at', 'DESC')->paginate(10);
-    	//return view('asetposisi.index', ['aseta' => $aseta]);
-=======
         $aset = Aset::orderBy('created_at', 'DESC')->paginate(10);
     	return view('asetposisi.index', ['aset' => $aset]);
->>>>>>> parent of 9a6b9d6 (add aset_posisi)
     }
 
     /**

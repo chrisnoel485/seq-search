@@ -54,14 +54,14 @@
                                             <th class="text-center">Letak</th>
                                         </tr>
                                         @php $no = 1; @endphp
-                                        @foreach($aseta as $a)
+                                        @forelse ($aseta as $aseta)
                                         <tr>
                                             <td class="text-center">{{ $no++ }}</td>
-                                            <td>{{ $a->nama }}</td>
+                                            <td>{{ $aseta->nama }}</td>
                                             <td>
-                                                @foreach($a->letaka as $h)
-                                                <li> {{ $h->nama }} </li>
-                                                @endforeach
+                                                @foreach($aseta->letaka as $h)
+								                    <li> {{ $h->nama}} </li>
+									            @endforeach
                                             </td>
                                         </tr>
                                         @empty
