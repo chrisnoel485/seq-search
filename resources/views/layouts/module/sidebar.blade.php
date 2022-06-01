@@ -63,7 +63,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="{{ route('aset.posisi') }}" class="nav-link">
+            <a href="{{ route('aset.index') }}" class="nav-link">
               <i class="nav-icon fas fa-file"></i>
               <p>History Letak Aset</p>
             </a>
