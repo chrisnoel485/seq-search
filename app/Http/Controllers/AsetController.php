@@ -160,8 +160,9 @@ class AsetController extends Controller
                 'jenis_id' => $request->jenis_id,
                 'status_id' => $request->status_id,
             ]);
-            DB::table('anggotas')->insert([
-                'nama' => $request->nama,
+            DB::table('anggota_hadiahs')->insert([
+                'anggota_id' => $id,
+                'hadiah_id' => $request->letak_id_baru,
             ]);
             return redirect()->route('aset.index')
             ->with('success', 'Aset Berhasil Diupdate');
