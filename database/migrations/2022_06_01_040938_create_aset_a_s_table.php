@@ -16,7 +16,6 @@ class CreateAsetASTable extends Migration
         Schema::create('aset_a_s', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nama');
-            $table->integer('letaka_id')->unsigned();;
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent();
         });

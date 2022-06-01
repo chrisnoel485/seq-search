@@ -84,7 +84,6 @@ class AsetController extends Controller
         Aset::create($request->all());
         DB::table('aset_a_s')->insert([
             'nama' => $request->nama,
-            'letaka_id' => $request->letak_id,
         ]);
         return redirect()->route('aset.index')
             ->with('success', 'Aset Berhasil Ditambahkan');
