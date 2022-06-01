@@ -10,7 +10,6 @@ class AsetA extends Model
     use HasFactory;
     protected $fillable = [
         'nama',
-        'letak_id',
     ];
     public function letaka()
         {

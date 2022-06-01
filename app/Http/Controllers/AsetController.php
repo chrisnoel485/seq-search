@@ -159,8 +159,8 @@ class AsetController extends Controller
             ->with('success', 'Aset Berhasil Diupdate');
         } else {
             DB::table('aset_a_letak_a')->insert([
-                'aseta_id' => $id,
-                'letaka_id' => $request->letak_id_lama,
+                'aset_a_id' => $id,
+                'letak_a_id' => $request->letak_id_lama,
             ]);
 
             return redirect()->route('aset.index')
