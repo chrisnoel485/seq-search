@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Asetposisi;
-use App\Models\AsetA;
-use App\Models\LetakA;
+use App\Models\Aset;
+use App\Models\Letak;
 use Illuminate\Http\Request;
 
 class AsetposisiController extends Controller
@@ -17,10 +17,15 @@ class AsetposisiController extends Controller
     public function index()
     {
         //
+<<<<<<< HEAD
         $aseta = AsetA::get();
     	return view('asetposisi.index', ['aseta' => $aseta]);
         //$aseta = AsetA::orderBy('created_at', 'DESC')->paginate(10);
     	//return view('asetposisi.index', ['aseta' => $aseta]);
+=======
+        $aset = Aset::orderBy('created_at', 'DESC')->paginate(10);
+    	return view('asetposisi.index', ['aset' => $aset]);
+>>>>>>> parent of 9a6b9d6 (add aset_posisi)
     }
 
     /**
