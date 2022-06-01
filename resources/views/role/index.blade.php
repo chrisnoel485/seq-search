@@ -73,7 +73,7 @@
                                                     <a class="btn btn-primary" href="{{ route('role.edit',$role->id) }}">Edit</a>
                                                     
                                                     @csrf
-                                                    @can('role-delete')
+                                                    
                                                     
                                                     <button type="submit" class="btn btn-danger">Delete</button>
                                                     
