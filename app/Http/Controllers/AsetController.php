@@ -136,7 +136,7 @@ class AsetController extends Controller
 
         //fungsi eloquent untuk mengupdate data inputan kita
         if ($request->letak_id_baru == $request->letak_id_lama) {
-            DB::table('asets')->insert([
+            DB::table('asets')->update([
                 'nama' => $request->nama,
                 'deskripsi' => $request->deskripsi,
                 'letak_id' => $request->letak_id_baru,
@@ -149,7 +149,7 @@ class AsetController extends Controller
             return redirect()->route('aset.index')
             ->with('success', 'Aset Berhasil Diupdate');
         } else {
-            DB::table('asets')->insert([
+            DB::table('asets')->update([
                 'nama' => $request->nama,
                 'deskripsi' => $request->deskripsi,
                 'letak_id' => $request->letak_id_baru,
