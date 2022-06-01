@@ -68,9 +68,6 @@ class LetakController extends Controller
             'kategori_id' => 'required',
         ]);
         Letak::create($request->all());
-        DB::table('letak_a_s')->insert([
-            'nama' => $request->nama,
-        ]);
         return redirect()->route('letak.index')
             ->with('success', 'Letak Berhasil Ditambahkan');
     }

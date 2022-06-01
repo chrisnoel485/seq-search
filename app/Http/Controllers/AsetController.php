@@ -4,13 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Aset;
 use App\Models\Letak;
-use App\Models\AsetA;
-use App\Models\LetakA;
 use App\Models\Kategori;
 use App\Models\Jenis;
 use App\Models\Merek;
 use App\Models\Status;
-use App\Models\Asetposisi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Input;
@@ -82,10 +79,6 @@ class AsetController extends Controller
             'status_id' => 'required',
         ]);
         Aset::create($request->all());
-        DB::table('aset_a_s')->insert([
-            'nama' => $request->nama,
-            'letaka_id' => $request->letak_id,
-        ]);
         return redirect()->route('aset.index')
             ->with('success', 'Aset Berhasil Ditambahkan');
     }
@@ -155,18 +148,18 @@ class AsetController extends Controller
             'status_id' => $request->status_id,
         ]);
 
-        if ($request->letak_id_baru == $request->letak_id_lama) {
-            return redirect()->route('aset.index')
-            ->with('success', 'Aset Berhasil Diupdate');
-        } else {
-            DB::table('asetposisis')->insert([
-                'aseta_id' => $id,
-                'letaka_id' => $request->letak_id_lama,
-            ]);
+        //if ($request->letak_id_baru == $request->letak_id_lama) {
+        //    return redirect()->route('aset.index')
+        //    ->with('success', 'Aset Berhasil Diupdate');
+        //} else {
+        //    DB::table('asetposisis')->insert([
+       //         'aseta_id' => $id,
+        //        'letaka_id' => $request->letak_id_lama,
+        //    ]);
 
             return redirect()->route('aset.index')
             ->with('success', 'Aset Berhasil Diupdate');
-        }
+        //}
         #DB::table('asetposisis')->insert([
         #    'aset_id' => $id,
         #    'letak_id' => $request->letak_id_lama,
