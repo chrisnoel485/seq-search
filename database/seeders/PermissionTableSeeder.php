@@ -16,14 +16,14 @@ class PermissionTableSeeder extends Seeder
     {
         //
         $permissions = [
-            //'role-list',
-            //'role-create',
-            //'role-edit',
-            //'role-delete',
-            //'jenis-list',
-            //'jenis-create',
-            //'jenis-edit',
-            //'jenis-delete',
+            'role-list',
+            'role-create',
+            'role-edit',
+            'role-delete',
+            'jenis-list',
+            'jenis-create',
+            'jenis-edit',
+            'jenis-delete',
             'merek-list',
             'merek-create',
             'merek-edit',
