@@ -15,8 +15,8 @@ class CreateAsetposisisTable extends Migration
     {
         Schema::create('aset_a_letak_a', function (Blueprint $table) {
             $table->increments('id');;
-            $table->integer('aset_a_id')->unsigned();;
-            $table->integer('letak_a_id')->unsigned();;
+            $table->integer('aseta_id')->unsigned();;
+            $table->integer('letaka_id')->unsigned();;
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent();
         });
