@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Anggota extends Model
 {
     use HasFactory;
+    protected $table = "anggotas";
+ 
+    public function hadiah()
+    {
+    	return $this->belongsToMany('App\Models\Hadiah');
+    }
 }

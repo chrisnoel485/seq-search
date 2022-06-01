@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Letak;
 use App\Models\Kategori;
+use App\Models\Hadiah;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class LetakController extends Controller
 {
@@ -66,6 +68,9 @@ class LetakController extends Controller
             'kategori_id' => 'required',
         ]);
         Letak::create($request->all());
+        DB::table('hadiahs')->insert([
+            'nama' => $request->nama,
+        ]);
         return redirect()->route('letak.index')
             ->with('success', 'Letak Berhasil Ditambahkan');
     }
