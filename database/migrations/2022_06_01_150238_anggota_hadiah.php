@@ -16,7 +16,7 @@ class AnggotaHadiah extends Migration
         //
         Schema::create('anggota_hadiah', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('angota_id')->unsigned();;
+            $table->integer('anggota_id')->unsigned();;
             $table->integer('hadiah_id')->unsigned();;
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent();
