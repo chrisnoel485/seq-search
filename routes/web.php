@@ -40,7 +40,7 @@ Route::group(['middleware' => 'auth'], function() {
     Route::resource('letak', LetakController::class);
     Route::resource('aset', AsetController::class);
     Route::resource('user', UserController::class);
-    Route::get('/aset/posisi', [Controller::class, 'posisi'])->name('user.posisi');
+    Route::get('/aset/posisi', [Controller::class, 'posisi'])->name('aset.posisi');
     Route::get('/user/{user}/role', [Controller::class, 'role'])->name('user.role');
     Route::get('/posisi', [AsetController::class, 'posisi'])->name('aset.posisi');
     Route::put('/user/{user}/setrole', [UserController::class, 'setrole'])->name('user.setrole');
