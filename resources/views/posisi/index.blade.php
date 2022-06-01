@@ -59,7 +59,7 @@
                                             <td>
                                                 <ul>
                                                     @foreach($a->hadiah as $h)
-                                                    <li> {{ $h->nama_hadiah }} </li>
+                                                    <li> {{ $h->nama }} </li>
                                                     @endforeach
                                                 </ul>
                                             </td>
