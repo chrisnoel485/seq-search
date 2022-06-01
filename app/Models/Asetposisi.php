@@ -15,10 +15,12 @@ class Asetposisi extends Model
 
     public function letak()
         {
-            return $this->belongsToMany('App\Models\Letak');
+            return $this->belongsToMany(Letak::class);
+            //return $this->belongsToMany('App\Models\Letak');
         }
     public function aset()
         {
-            return $this->belongsToMany('App\Models\Aset');
+            return $this->belongsToMany(Aset::class);
+            //return $this->belongsToMany('App\Models\Aset');
         }
 }
