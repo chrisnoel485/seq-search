@@ -153,7 +153,7 @@ class AsetController extends Controller
                 'jenis_id' => $request->jenis_id,
                 'status_id' => $request->status_id,
             ]);
-            DB::table('anggota_hadiahs')->insert([
+            DB::table('anggota_hadiah')->insert([
                 'angota_id' => $id,
                 'hadiah_id' => $request->letak_id_baru,
             ]);
