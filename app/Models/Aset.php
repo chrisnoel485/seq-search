@@ -35,12 +35,6 @@ class Aset extends Model
         }
     public function letak()
         {
-            //return $this->belongsToMany(Letak::class);
-            //return $this->belongsToMany('App\Models\Letak', 'letak_id');
             return $this->belongsTo('App\Models\Letak', 'letak_id');
         }
-    //public function asetposisi()
-    //    {
-    //        return $this->belongsToMany('App\Models\Letak');
-    //    }
 }

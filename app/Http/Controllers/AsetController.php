@@ -9,8 +9,6 @@ use App\Models\Jenis;
 use App\Models\Merek;
 use App\Models\Status;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Input;
 
 class AsetController extends Controller
 {
@@ -27,15 +25,12 @@ class AsetController extends Controller
         ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
-    //public function posisi()
-    //{
+    public function posisi()
+    {
         //
-    //    $aset = Aset::orderBy('created_at', 'DESC')->paginate(10);
-    //	return view('aset.posisi', ['aset' => $aset]);
-        
-    //    //$aset = Aset::findOrFail($id);
-        //return view('aset.posisi', compact('aset'));
-    //}
+        $aset = Aset::findOrFail($id);
+        return view('aset.posisi', compact('aset'));
+    }
 
     public function search(Request $request)
     {
@@ -128,7 +123,6 @@ class AsetController extends Controller
             'nama' => 'required',
             'deskripsi' => 'required',
             'letak_id_baru' => 'required',
-            'letak_id_lama' => 'required',
             'merek_id' => 'required',
             'kategori_id' => 'required',
             'jenis_id' => 'required',
@@ -136,38 +130,11 @@ class AsetController extends Controller
         ]);
 
         //fungsi eloquent untuk mengupdate data inputan kita
-        //Aset::find($id)->update($request->all());
-        $aset = Aset::findOrFail($id);
-        $aset->update([
-            'nama' => $request->nama,
-            'deskripsi' => $request->deskripsi,
-            'letak_id' => $request->letak_id_baru,
-            'merek_id' => $request->merek_id,
-            'kategori_id' => $request->kategori_id,
-            'jenis_id' => $request->jenis_id,
-            'status_id' => $request->status_id,
-        ]);
-
-        //if ($request->letak_id_baru == $request->letak_id_lama) {
-        //    return redirect()->route('aset.index')
-        //    ->with('success', 'Aset Berhasil Diupdate');
-        //} else {
-        //    DB::table('asetposisis')->insert([
-       //         'aseta_id' => $id,
-        //        'letaka_id' => $request->letak_id_lama,
-        //    ]);
-
-            return redirect()->route('aset.index')
-            ->with('success', 'Aset Berhasil Diupdate');
-        //}
-        #DB::table('asetposisis')->insert([
-        #    'aset_id' => $id,
-        #    'letak_id' => $request->letak_id_lama,
-        #]);
+        Aset::find($id)->update($request->all());
 
         //jika data berhasil diupdate, akan kembali ke halaman utama
-        //return redirect()->route('aset.index')
-        //    ->with('success', 'Aset Berhasil Diupdate');
+        return redirect()->route('aset.index')
+            ->with('success', 'Aset Berhasil Diupdate');
     }
 
     /**

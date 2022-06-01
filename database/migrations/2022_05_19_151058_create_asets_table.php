@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAsetASTable extends Migration
+class CreateAsetsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,15 @@ class CreateAsetASTable extends Migration
      */
     public function up()
     {
-        Schema::create('aset_a_s', function (Blueprint $table) {
+        Schema::create('asets', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nama');
+            $table->string('deskripsi')->nullable();
+            $table->integer('letak_id')->unsigned();;
+            $table->integer('merek_id')->unsigned();;
+            $table->integer('kategori_id')->unsigned();;
+            $table->integer('jenis_id')->unsigned();;
+            $table->integer('status_id')->unsigned();;
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent();
         });
@@ -28,6 +34,6 @@ class CreateAsetASTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('aset_a_s');
+        Schema::dropIfExists('asets');
     }
 }

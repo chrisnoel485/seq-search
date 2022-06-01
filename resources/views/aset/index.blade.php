@@ -60,7 +60,7 @@
                                             <th class="text-center">Kategori</th>
                                             <th class="text-center">Jenis</th>
                                             <th class="text-center">Status</th>
-                                            <th width="260px" class="text-center">Action</th>
+                                            <th width="280px" class="text-center">Action</th>
                                         </tr>
                                         @forelse ($aset as $aset)
                                         <tr>
@@ -79,7 +79,7 @@
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger">Delete</button>
-                                                    
+                                                    <a class="btn btn-primary" href="{{ route('aset.posisi',$aset->id) }}">Letak</a>
                                                 </form>
                                             </td>
                                         </tr>
