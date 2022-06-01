@@ -82,9 +82,9 @@ class AsetController extends Controller
             'status_id' => 'required',
         ]);
         Aset::create($request->all());
-        DB::table('aset_a_s')->insert([
-            'nama' => $request->nama,
-        ]);
+        //DB::table('aset_a_s')->insert([
+        //    'nama' => $request->nama,
+        //]);
         return redirect()->route('aset.index')
             ->with('success', 'Aset Berhasil Ditambahkan');
     }
@@ -154,17 +154,17 @@ class AsetController extends Controller
             'status_id' => $request->status_id,
         ]);
 
-        if ($request->letak_id_baru == $request->letak_id_lama) {
+        //if ($request->letak_id_baru == $request->letak_id_lama) {
             return redirect()->route('aset.index')
             ->with('success', 'Aset Berhasil Diupdate');
-        } else {
-            DB::table('aset_a_letak_a')->insert([
-                'aset_a_id' => $id,
-                'letak_a_id' => $request->letak_id_lama,
-            ]);
+        //} else {
+        //    DB::table('aset_a_letak_a')->insert([
+        //        'aset_a_id' => $id,
+        //        'letak_a_id' => $request->letak_id_lama,
+        //    ]);
 
-            return redirect()->route('aset.index')
-            ->with('success', 'Aset Berhasil Diupdate');
+        //    return redirect()->route('aset.index')
+        //    ->with('success', 'Aset Berhasil Diupdate');
         }
         #DB::table('asetposisis')->insert([
         #    'aset_id' => $id,
