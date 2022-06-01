@@ -9,18 +9,18 @@ class Asetposisi extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'aset_id',
-        'letak_id',
+        'aseta_id',
+        'letaka_id',
     ];
 
-    public function letak()
+    public function letaka()
         {
-            return $this->belongsToMany(Letak::class);
+            return $this->belongsToMany(LetakA::class);
             //return $this->belongsToMany('App\Models\Letak');
         }
-    public function aset()
+    public function aseta()
         {
-            return $this->belongsToMany(Aset::class);
+            return $this->belongsToMany(AsetA::class);
             //return $this->belongsToMany('App\Models\Aset');
         }
 }

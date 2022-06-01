@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Aset;
 use App\Models\Letak;
+use App\Models\AsetA;
+use App\Models\LetakA;
 use App\Models\Kategori;
 use App\Models\Jenis;
 use App\Models\Merek;
@@ -80,6 +82,10 @@ class AsetController extends Controller
             'status_id' => 'required',
         ]);
         Aset::create($request->all());
+        DB::table('aset_a_s')->insert([
+            'nama' => $request->nama,
+            'letaka_id' => $request->letak_id,
+        ]);
         return redirect()->route('aset.index')
             ->with('success', 'Aset Berhasil Ditambahkan');
     }
@@ -154,8 +160,8 @@ class AsetController extends Controller
             ->with('success', 'Aset Berhasil Diupdate');
         } else {
             DB::table('asetposisis')->insert([
-                'aset_id' => $id,
-                'letak_id' => $request->letak_id_lama,
+                'aseta_id' => $id,
+                'letaka_id' => $request->letak_id_lama,
             ]);
 
             return redirect()->route('aset.index')
