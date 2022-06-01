@@ -30,9 +30,9 @@
                                 <h3 class="card-title">Data Role</h3>
                             </div>
                             <div class="card-tools">
-                                @can('role-create')
+                                
                                 <a href="/role/create" class="btn btn-primary">Input Role Baru</a>
-                                @endcan
+                                
                             </div>
                         </div>
                         <div class="card-header">
@@ -69,14 +69,14 @@
                                             <td>
                                                 <form action="{{ route('role.destroy',$role->id) }}" method="POST">
                                                     <a class="btn btn-info" href="{{ route('role.show',$role->id) }}">Show</a>
-                                                    @can('role-edit')
+                                                    
                                                     <a class="btn btn-primary" href="{{ route('role.edit',$role->id) }}">Edit</a>
-                                                    @endcan
+                                                    
                                                     @csrf
-                                                    @can('role-delete')
+                                                    
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger">Delete</button>
-                                                    @endcan
+                                                    
                                                 </form>
                                             </td>
                                         </tr>
