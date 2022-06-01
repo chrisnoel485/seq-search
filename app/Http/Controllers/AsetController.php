@@ -32,7 +32,7 @@ class AsetController extends Controller
     //{
         //
     //    $aset = Aset::orderBy('created_at', 'DESC')->paginate(10);
-    	return view('aset.posisi', ['aset' => $aset]);
+    //	return view('aset.posisi', ['aset' => $aset]);
         
     //    //$aset = Aset::findOrFail($id);
         //return view('aset.posisi', compact('aset'));
