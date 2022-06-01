@@ -79,7 +79,6 @@
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger">Delete</button>
-                                                    <a class="btn btn-primary" href="{{ route('aset.posisi',$aset->id) }}">Letak</a>
                                                 </form>
                                             </td>
                                         </tr>
