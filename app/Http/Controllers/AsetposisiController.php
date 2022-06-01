@@ -17,8 +17,10 @@ class AsetposisiController extends Controller
     public function index()
     {
         //
-        $aseta = AsetA::orderBy('created_at', 'DESC')->paginate(10);
+        $aseta = AsetA::get();
     	return view('asetposisi.index', ['aseta' => $aseta]);
+        //$aseta = AsetA::orderBy('created_at', 'DESC')->paginate(10);
+    	//return view('asetposisi.index', ['aseta' => $aseta]);
     }
 
     /**
