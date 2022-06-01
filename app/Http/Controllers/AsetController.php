@@ -145,20 +145,24 @@ class AsetController extends Controller
             'jenis_id' => $request->jenis_id,
             'status_id' => $request->status_id,
         ]);
-        # DI EDIT YA BUAT JALANIN KLO SAMA LAMA DAN BARU MAKA ADD TO HISTORI
-        //if ($request->letak_id_lama != $request->letak_id_lama) {
-        //    DB::table('asetposisis')->insert([
-        //        'aset_id' => $id,
-        //        'letak_id' => $request->letak_id_lama,
-        //    ]);
-        //DB::table('asetposisis')->insert([
-        //    'aset_id' => $id,
-        //    'letak_id' => $request->letak_id_lama,
-        //]);
+        
+        if ($request->letak_id_baru == $request->letak_id_lama) {
+            return redirect()->route('aset.index')
+            ->with('success', 'Aset Berhasil Diupdate');
+        } else {
+            DB::table('asetposisis')->insert([
+                'aset_id' => $id,
+                'letak_id' => $request->letak_id_lama,
+            ]);
+        }
+        #DB::table('asetposisis')->insert([
+        #    'aset_id' => $id,
+        #    'letak_id' => $request->letak_id_lama,
+        #]);
 
         //jika data berhasil diupdate, akan kembali ke halaman utama
-        return redirect()->route('aset.index')
-            ->with('success', 'Aset Berhasil Diupdate');
+        //return redirect()->route('aset.index')
+        //    ->with('success', 'Aset Berhasil Diupdate');
     }
 
     /**
