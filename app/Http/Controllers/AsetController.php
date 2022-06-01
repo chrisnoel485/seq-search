@@ -28,7 +28,7 @@ class AsetController extends Controller
         ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
-    public function posisi())
+    public function posisi()
     {
         //
         $aset = Aset::orderBy('created_at', 'DESC')->paginate(10);
