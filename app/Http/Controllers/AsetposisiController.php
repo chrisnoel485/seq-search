@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Asetposisi;
+use App\Models\Aset;
+use App\Models\Letak;
 use Illuminate\Http\Request;
 
 class AsetposisiController extends Controller
@@ -15,6 +17,8 @@ class AsetposisiController extends Controller
     public function index()
     {
         //
+        $aset = Aset::orderBy('created_at', 'DESC')->paginate(10);
+    	return view('asetposisi.index', ['aset' => $aset]);
     }
 
     /**

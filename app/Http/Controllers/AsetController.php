@@ -28,15 +28,15 @@ class AsetController extends Controller
         ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
-    public function posisi()
-    {
+    //public function posisi()
+    //{
         //
-        $aset = Aset::orderBy('created_at', 'DESC')->paginate(10);
+    //    $aset = Aset::orderBy('created_at', 'DESC')->paginate(10);
     	return view('aset.posisi', ['aset' => $aset]);
         
-        //$aset = Aset::findOrFail($id);
+    //    //$aset = Aset::findOrFail($id);
         //return view('aset.posisi', compact('aset'));
-    }
+    //}
 
     public function search(Request $request)
     {

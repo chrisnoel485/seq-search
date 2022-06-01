@@ -6,6 +6,7 @@ use App\Http\Controllers\MerekController;
 use App\Http\Controllers\JenisController;
 use App\Http\Controllers\LetakController;
 use App\Http\Controllers\AsetController;
+use App\Http\Controllers\AsetposisiController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\HomeController;
@@ -40,9 +41,8 @@ Route::group(['middleware' => 'auth'], function() {
     Route::resource('letak', LetakController::class);
     Route::resource('aset', AsetController::class);
     Route::resource('user', UserController::class);
-    Route::get('/aset/posisi', [Controller::class, 'posisi'])->name('aset.posisi');
+    Route::resource('asetposisi', AsetposisiController::class);
     Route::get('/user/{user}/role', [Controller::class, 'role'])->name('user.role');
-    //Route::get('/posisi', [AsetController::class, 'posisi'])->name('aset.posisi');
     Route::put('/user/{user}/setrole', [UserController::class, 'setrole'])->name('user.setrole');
     Route::get('/search', [KategoriController::class, 'search'])->name('search');
     Route::get('/search', [LetakController::class, 'search'])->name('search');
