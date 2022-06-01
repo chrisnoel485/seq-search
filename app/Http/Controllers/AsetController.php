@@ -161,7 +161,7 @@ class AsetController extends Controller
                 'status_id' => $request->status_id,
             ]);
             DB::table('anggota_hadiahs')->insert([
-                'anggota_id' => $id,
+                'angota_id' => $id,
                 'hadiah_id' => $request->letak_id_baru,
             ]);
             return redirect()->route('aset.index')
