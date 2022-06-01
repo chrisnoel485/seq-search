@@ -145,7 +145,7 @@ class AsetController extends Controller
             'jenis_id' => $request->jenis_id,
             'status_id' => $request->status_id,
         ]);
-        
+
         if ($request->letak_id_baru == $request->letak_id_lama) {
             return redirect()->route('aset.index')
             ->with('success', 'Aset Berhasil Diupdate');
@@ -154,6 +154,9 @@ class AsetController extends Controller
                 'aset_id' => $id,
                 'letak_id' => $request->letak_id_lama,
             ]);
+
+            return redirect()->route('aset.index')
+            ->with('success', 'Aset Berhasil Diupdate');
         }
         #DB::table('asetposisis')->insert([
         #    'aset_id' => $id,
