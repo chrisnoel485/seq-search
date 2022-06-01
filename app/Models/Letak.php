@@ -21,9 +21,9 @@ class Letak extends Model
         }
     public function aset()
         {
-            return $this->belongsToMany(Aset::class);
+            //return $this->belongsToMany(Aset::class);
             //return $this->belongsToMany('App\Models\Aset', 'letak_id');
-            //return $this->hasOne('App\Models\Aset', 'letak_id');
+            return $this->hasOne('App\Models\Aset', 'letak_id');
         }
     //public function posisiaset()
     //    {
