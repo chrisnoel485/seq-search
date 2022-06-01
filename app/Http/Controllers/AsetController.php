@@ -145,13 +145,12 @@ class AsetController extends Controller
             'jenis_id' => $request->jenis_id,
             'status_id' => $request->status_id,
         ]);
-        
-        if ($request->letak_id_lama != $request->letak_id_lama) {
-            DB::table('asetposisis')->insert([
-                'aset_id' => $id,
-                'letak_id' => $request->letak_id_lama,
-            ]);
-        }
+        # DI EDIT YA BUAT JALANIN KLO SAMA LAMA DAN BARU MAKA ADD TO HISTORI
+        //if ($request->letak_id_lama != $request->letak_id_lama) {
+        //    DB::table('asetposisis')->insert([
+        //        'aset_id' => $id,
+        //        'letak_id' => $request->letak_id_lama,
+        //    ]);
         //DB::table('asetposisis')->insert([
         //    'aset_id' => $id,
         //    'letak_id' => $request->letak_id_lama,
