@@ -19,10 +19,10 @@
 
       <!-- SidebarSearch Form -->
       <div class="form-inline">
-        <form action="/aset/cari" method="GET">
+        <form class="form" method="get" action="{{ route('search') }}">
           <div class="input-group" data-widget="sidebar-search">
-	          <input type="text" name="cari" placeholder="Cari Aset" value="{{ old('cari') }}">
-		        <input type="submit" value="CARI">
+            <input type="text" name="search" class="form-control w-75 d-inline" id="search" placeholder="Masukkan keyword">
+            <button type="submit" class="btn btn-primary mb-1">Cari</button>
           </div>
 	      </form>
       </div>
