@@ -136,7 +136,7 @@ class LetakController extends Controller
     {
         //
         Letak::find($id)->delete();
-        Hasiah::find($id)->delete();
+        Hadiah::find($id)->delete();
         return redirect()->route('letak.index')
             ->with('success', 'Letak Berhasil Dihapus');
     }
