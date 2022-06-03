@@ -79,6 +79,7 @@
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger">Delete</button>
+                                                    <a class="btn btn-info" href="{{ route('posisi.show',$aset->id) }}">History</a>
                                                 </form>
                                             </td>
                                         </tr>

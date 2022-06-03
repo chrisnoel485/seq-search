@@ -15,4 +15,11 @@ class PosisiController extends Controller
     	return view('posisi.index', ['anggota' => $anggota]);
     }
 
+    public function show($id)
+    {
+        //
+        $anggota = Anggota::findOrFail($id);
+        return view('posisi.show', ['anggota' => $anggota]);
+    }
+
 }
