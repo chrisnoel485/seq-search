@@ -45,6 +45,7 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('/user/{user}/role', [UserController::class, 'role'])->name('user.role');
     Route::put('/user/{user}/setrole', [UserController::class, 'setrole'])->name('user.setrole');
     Route::get('/search', [KategoriController::class, 'search'])->name('search');
+    Route::get('/searchposisi', [PosisiController::class, 'searchposisi'])->name('searchposisi');
     Route::get('/search', [LetakController::class, 'search'])->name('search');
     Route::get('/search', [AsetController::class, 'search'])->name('search'); 
     Route::get('/home', [HomeController::class, 'index'])->name('home');
