@@ -26,13 +26,8 @@
         <section class="content">
             <div class="container-fluid">
                 <div class="row">
-                <h1>Welcome to Our Company</h1>
-  <h2>Web Site Main Ingredients:</h2>
-
-  <p>Pages (HTML)</p>
-  <p>Style Sheets (CSS)</p>
-  <p>Computer Code (JavaScript)</p>
-  <p>Live Data (Files and Databases)</p>
+                <h1>Selamat Datang Di Pusat Data Aset</h1>
+  <h2>Penelusuran letak Aset</h2>
                 </div>
             </div>
         </section>
