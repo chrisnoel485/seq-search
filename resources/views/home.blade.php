@@ -27,7 +27,14 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-12">
-                    <h1>Selamat Datang Di Pusat Data Aset</h1>
+                        <div class="card">
+                            <div class="card-header">
+                                <div>
+                                    <h1>Selamat Datang Di Pusat Data Aset</h1>
+                                </div>
+                            </div>
+                            
+                        </div>
                     </div>
                 
                 </div>
