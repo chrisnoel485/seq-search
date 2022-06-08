@@ -26,6 +26,7 @@
         <section class="content">
             <div class="container-fluid">
                 <div class="row">
+                    SELAMAT DATANG DI PUSAT DATA ASET
                 </div>
             </div>
         </section>
