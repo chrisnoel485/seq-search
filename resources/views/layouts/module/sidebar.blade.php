@@ -9,14 +9,6 @@
     <div class="sidebar">
 
       <!-- SidebarSearch Form -->
-      <div class="form-inline">
-        <form class="form" method="get" action="{{ route('search') }}">
-          <div class="input-group" data-widget="sidebar-search">
-            <input type="text" name="search" class="form-control w-75 d-inline" id="search" placeholder="Masukkan keyword">
-            <button type="submit" class="btn btn-primary mb-1">Cari</button>
-          </div>
-	      </form>
-      </div>
 
       <!-- Sidebar Menu -->
       <nav class="mt-2">
