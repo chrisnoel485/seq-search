@@ -26,8 +26,10 @@
         <section class="content">
             <div class="container-fluid">
                 <div class="row">
-                <h1>Selamat Datang Di Pusat Data Aset</h1>
-  <h2>Penelusuran letak Aset</h2>
+                    <div class="col-12">
+                    <h1>Selamat Datang Di Pusat Data Aset</h1>
+                    </div>
+                
                 </div>
             </div>
         </section>
