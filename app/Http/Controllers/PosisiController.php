@@ -18,7 +18,7 @@ class PosisiController extends Controller
     public function searchposisi(Request $request)
     {
         $searchposisi = $request->searchposisi;        
-        $anggota = Anggota::where('nama', 'like', "%" . $searchposisi . "%")->paginate(5);
+        $anggota = Anggota::where('nama', 'like', "%" . $searchposisi . "%")->paginate(100);
         return view('posisi.index', ['anggota' => $anggota]);
     }
 

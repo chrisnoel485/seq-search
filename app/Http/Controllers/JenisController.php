@@ -24,7 +24,7 @@ class JenisController extends Controller
     public function index()
     {
         //
-        $jenis = Jenis::latest()->paginate(5);
+        $jenis = Jenis::latest()->paginate(100);
         return view('jenis.index', compact('jenis'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }

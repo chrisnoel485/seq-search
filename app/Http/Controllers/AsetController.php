@@ -30,7 +30,7 @@ class AsetController extends Controller
     public function search(Request $request)
     {
         $search = $request->search;        
-        $aset = Aset::where('nama', 'like', "%" . $search . "%")->with('kategori','merek','status','jenis','letak')->paginate(5);
+        $aset = Aset::where('nama', 'like', "%" . $search . "%")->with('kategori','merek','status','jenis','letak')->paginate(100);
         return view('aset.index', compact('aset'))->with('i', (request()->input('page', 1) - 1) * 5);
     }
 

@@ -22,7 +22,7 @@ class MerekController extends Controller
     public function index()
     {
         //
-        $merek = Merek::latest()->paginate(5);
+        $merek = Merek::latest()->paginate(100);
         return view('merek.index', compact('merek'))
             ->with('i', (request()->input('page', 1) - 1) * 5);
     }
